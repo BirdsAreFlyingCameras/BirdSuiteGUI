@@ -1,3 +1,4 @@
+
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
 const FullScanButton = document.getElementById('FullScanButton') as HTMLButtonElement
@@ -7,21 +8,35 @@ const RangeInputBox = document.getElementById('CustomScanRangeInput') as HTMLInp
 
 const SubmitButton = document.getElementById('SubmitButton')
 
+console.log('test')
+
 function handleButtonClick(value: string): void {
     let ScanType = value
-    console.log(`Value: ${value}`)
-    console.log(`ScanType: ${ScanType}`)
 
-    const CheckBoxButtonList = ['CommonScanButton', 'FullScanButton', 'CustomScanButton']
+    const ButtonDict = {'CommonScanButton': CommonButton, 'FullScanButton':FullScanButton, 'CustomScanButton':CustomScanButton}
 
-    CheckBoxButtonList.forEach(ButtonName =>{
+    let HtmlButtons = Object.keys(ButtonDict)
+    let TSButtons = Object.values(ButtonDict)
+
+    HtmlButtons.forEach(ButtonName => {
+        TSButtons.forEach(TSButton => {
             let Button = document.getElementById(`${ButtonName}`) as HTMLInputElement
 
-            if (ButtonName != ScanType){
+            if (ButtonName != ScanType) {
+
+                let TSButtonVal = ButtonDict[`${ButtonName}`]
+
+
+                if (TSButtonVal.classList.contains('Checked')){
+
+                    TSButtonVal.classList.toggle('Checked')
+                    TSButtonVal.classList.toggle('NotChecked')
+
+                }
 
                 Button.checked = false
 
-                if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')){
+                if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')) {
                     RangeInputBox.classList.toggle('Toggled');
                     RangeInputBox.classList.toggle('NotToggled');
 
@@ -40,7 +55,8 @@ function handleButtonClick(value: string): void {
                 }
             }
         })
-
+    })
+}
 CommonButton.addEventListener('click', () => {
 
     handleButtonClick('CommonScanButton');
@@ -76,7 +92,7 @@ CustomScanButton.addEventListener('click', () => {
 
     if (RangeInputBox.classList.contains('Toggled')) {
 
-        RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text">';
+        RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text" id="PortRangeInput">';
 
     } else {
         RangeInputBox.innerHTML = ''
@@ -85,16 +101,40 @@ CustomScanButton.addEventListener('click', () => {
 
 SubmitButton.addEventListener('click', () => {
 
-    let URLorIP = document.getElementById('URLorIP') as HTMLInputElement
+    let URLorIPInput = document.getElementById('URLorIP') as HTMLInputElement
 
-    if (CustomScanButton.classList.contains('Checked')){
+    let URLorIP = URLorIPInput.value
 
-        let PortRange = document.getElementById('CustomScanRangeInput') as HTMLInputElement
-        console.log(`Port Range: ${PortRange.value}`)
+    console.log(`URL or IP: ${URLorIP}`)
+
+    if (CommonButton.classList.contains('Checked')){
+        let ScanType = 'CommonScan'
+        console.log(`Scan Type: ${ScanType}`)
+
     }
 
-    console.log(`URL or IP: ${URLorIP.value}`)
+    if (FullScanButton.classList.contains('Checked')){
+
+        let ScanType = 'FullScan'
+        console.log(`Scan Type: ${ScanType}`)
 
 
-    })
-}
+    }
+
+    if (CustomScanButton.classList.contains('Checked')) {
+
+        let ScanType = 'CustomScan'
+
+        let PortRangeInput = document.getElementById('PortRangeInput') as HTMLInputElement
+
+        let PortRange = PortRangeInput.value
+
+        console.log(`Port Range: ${PortRange}`)
+        console.log(`Scan Type: ${ScanType}`)
+
+    }
+
+
+
+
+})

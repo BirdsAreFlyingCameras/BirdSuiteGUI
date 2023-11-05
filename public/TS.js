@@ -1,60 +1,80 @@
-var CommonButton = document.getElementById('CommonScanButton');
-var FullScanButton = document.getElementById('FullScanButton');
-var CustomScanButton = document.getElementById('CustomScanButton');
-var RangeInputBox = document.getElementById('CustomScanRangeInput');
-var SubmitButton = document.getElementById('SubmitButton');
+const CommonButton = document.getElementById('CommonScanButton');
+const FullScanButton = document.getElementById('FullScanButton');
+const CustomScanButton = document.getElementById('CustomScanButton');
+const RangeInputBox = document.getElementById('CustomScanRangeInput');
+const SubmitButton = document.getElementById('SubmitButton');
+console.log('test');
 function handleButtonClick(value) {
-    var ScanType = value;
-    console.log("Value: ".concat(value));
-    console.log("ScanType: ".concat(ScanType));
-    var CheckBoxButtonList = ['CommonScanButton', 'FullScanButton', 'CustomScanButton'];
-    CheckBoxButtonList.forEach(function (ButtonName) {
-        var Button = document.getElementById("".concat(ButtonName));
-        if (ButtonName != ScanType) {
-            Button.checked = false;
-            if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')) {
-                RangeInputBox.classList.toggle('Toggled');
-                RangeInputBox.classList.toggle('NotToggled');
-            }
-        }
-        else {
-            if (ButtonName != 'CustomScanButton') {
-                if (Button.classList.contains('Checked')) {
-                    Button.checked = false;
+    let ScanType = value;
+    const ButtonDict = { 'CommonScanButton': CommonButton, 'FullScanButton': FullScanButton, 'CustomScanButton': CustomScanButton };
+    let HtmlButtons = Object.keys(ButtonDict);
+    let TSButtons = Object.values(ButtonDict);
+    HtmlButtons.forEach(ButtonName => {
+        TSButtons.forEach(TSButton => {
+            let Button = document.getElementById(`${ButtonName}`);
+            if (ButtonName != ScanType) {
+                let TSButtonVal = ButtonDict[`${ButtonName}`];
+                if (TSButtonVal.classList.contains('Checked')) {
+                    TSButtonVal.classList.toggle('Checked');
+                    TSButtonVal.classList.toggle('NotChecked');
+                }
+                Button.checked = false;
+                if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')) {
+                    RangeInputBox.classList.toggle('Toggled');
+                    RangeInputBox.classList.toggle('NotToggled');
                 }
             }
-        }
-    });
-    CommonButton.addEventListener('click', function () {
-        handleButtonClick('CommonScanButton');
-        CommonButton.classList.toggle('Checked');
-        CommonButton.classList.toggle('NotChecked');
-    });
-    FullScanButton.addEventListener('click', function () {
-        handleButtonClick('FullScanButton');
-        FullScanButton.classList.toggle('Checked');
-        FullScanButton.classList.toggle('NotChecked');
-    });
-    CustomScanButton.addEventListener('click', function () {
-        handleButtonClick('CustomScanButton');
-        CustomScanButton.classList.toggle('Checked');
-        CustomScanButton.classList.toggle('NotChecked');
-        RangeInputBox.classList.toggle('NotToggled');
-        RangeInputBox.classList.toggle('Toggled');
-        if (RangeInputBox.classList.contains('Toggled')) {
-            RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text">';
-        }
-        else {
-            RangeInputBox.innerHTML = '';
-        }
-    });
-    SubmitButton.addEventListener('click', function () {
-        var URLorIP = document.getElementById('URLorIP');
-        if (CustomScanButton.classList.contains('Checked')) {
-            var PortRange = document.getElementById('CustomScanRangeInput');
-            console.log("Port Range: ".concat(PortRange.value));
-        }
-        console.log("URL or IP: ".concat(URLorIP.value));
+            else {
+                if (ButtonName != 'CustomScanButton') {
+                    if (Button.classList.contains('Checked')) {
+                        Button.checked = false;
+                    }
+                }
+            }
+        });
     });
 }
+CommonButton.addEventListener('click', () => {
+    handleButtonClick('CommonScanButton');
+    CommonButton.classList.toggle('Checked');
+    CommonButton.classList.toggle('NotChecked');
+});
+FullScanButton.addEventListener('click', () => {
+    handleButtonClick('FullScanButton');
+    FullScanButton.classList.toggle('Checked');
+    FullScanButton.classList.toggle('NotChecked');
+});
+CustomScanButton.addEventListener('click', () => {
+    handleButtonClick('CustomScanButton');
+    CustomScanButton.classList.toggle('Checked');
+    CustomScanButton.classList.toggle('NotChecked');
+    RangeInputBox.classList.toggle('NotToggled');
+    RangeInputBox.classList.toggle('Toggled');
+    if (RangeInputBox.classList.contains('Toggled')) {
+        RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text" id="PortRangeInput">';
+    }
+    else {
+        RangeInputBox.innerHTML = '';
+    }
+});
+SubmitButton.addEventListener('click', () => {
+    let URLorIPInput = document.getElementById('URLorIP');
+    let URLorIP = URLorIPInput.value;
+    console.log(`URL or IP: ${URLorIP}`);
+    if (CommonButton.classList.contains('Checked')) {
+        let ScanType = 'CommonScan';
+        console.log(`Scan Type: ${ScanType}`);
+    }
+    if (FullScanButton.classList.contains('Checked')) {
+        let ScanType = 'FullScan';
+        console.log(`Scan Type: ${ScanType}`);
+    }
+    if (CustomScanButton.classList.contains('Checked')) {
+        let ScanType = 'CustomScan';
+        let PortRangeInput = document.getElementById('PortRangeInput');
+        let PortRange = PortRangeInput.value;
+        console.log(`Port Range: ${PortRange}`);
+        console.log(`Scan Type: ${ScanType}`);
+    }
+});
 //# sourceMappingURL=TS.js.map
