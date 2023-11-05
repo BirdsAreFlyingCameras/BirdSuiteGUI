@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
+    "module": "ESNext", // This tells TypeScript to use ES Modules
     "target": "es2017",
     "lib": ["es2017", "dom"],
-    "sourceMap": true
+    "sourceMap": true,
+    "moduleResolution": "node" // This line is often needed for proper module resolution
   },
   "exclude": [
     "node_modules"

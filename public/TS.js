@@ -1,37 +1,35 @@
+import { BirdScanPost } from './utils.js';
 const CommonButton = document.getElementById('CommonScanButton');
 const FullScanButton = document.getElementById('FullScanButton');
 const CustomScanButton = document.getElementById('CustomScanButton');
 const RangeInputBox = document.getElementById('CustomScanRangeInput');
 const SubmitButton = document.getElementById('SubmitButton');
-console.log('test');
+console.log('JS Script Loaded');
 function handleButtonClick(value) {
     let ScanType = value;
     const ButtonDict = { 'CommonScanButton': CommonButton, 'FullScanButton': FullScanButton, 'CustomScanButton': CustomScanButton };
     let HtmlButtons = Object.keys(ButtonDict);
-    let TSButtons = Object.values(ButtonDict);
     HtmlButtons.forEach(ButtonName => {
-        TSButtons.forEach(TSButton => {
-            let Button = document.getElementById(`${ButtonName}`);
-            if (ButtonName != ScanType) {
-                let TSButtonVal = ButtonDict[`${ButtonName}`];
-                if (TSButtonVal.classList.contains('Checked')) {
-                    TSButtonVal.classList.toggle('Checked');
-                    TSButtonVal.classList.toggle('NotChecked');
-                }
-                Button.checked = false;
-                if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')) {
-                    RangeInputBox.classList.toggle('Toggled');
-                    RangeInputBox.classList.toggle('NotToggled');
+        let Button = document.getElementById(`${ButtonName}`);
+        if (ButtonName != ScanType) {
+            let TSButtonVal = ButtonDict[`${ButtonName}`];
+            if (TSButtonVal.classList.contains('Checked')) {
+                TSButtonVal.classList.toggle('Checked');
+                TSButtonVal.classList.toggle('NotChecked');
+            }
+            Button.checked = false;
+            if (ButtonName == 'CustomScanButton' && RangeInputBox.classList.contains('Toggled')) {
+                RangeInputBox.classList.toggle('Toggled');
+                RangeInputBox.classList.toggle('NotToggled');
+            }
+        }
+        else {
+            if (ButtonName != 'CustomScanButton') {
+                if (Button.classList.contains('Checked')) {
+                    Button.checked = false;
                 }
             }
-            else {
-                if (ButtonName != 'CustomScanButton') {
-                    if (Button.classList.contains('Checked')) {
-                        Button.checked = false;
-                    }
-                }
-            }
-        });
+        }
     });
 }
 CommonButton.addEventListener('click', () => {
@@ -57,13 +55,27 @@ CustomScanButton.addEventListener('click', () => {
         RangeInputBox.innerHTML = '';
     }
 });
-SubmitButton.addEventListener('click', () => {
+SubmitButton.addEventListener('click', async () => {
     let URLorIPInput = document.getElementById('URLorIP');
     let URLorIP = URLorIPInput.value;
     console.log(`URL or IP: ${URLorIP}`);
     if (CommonButton.classList.contains('Checked')) {
-        let ScanType = 'CommonScan';
+        let ScanType = 'Common';
         console.log(`Scan Type: ${ScanType}`);
+        let PostData = {
+            URLorIP: URLorIP,
+            ScanType: ScanType
+        };
+        console.log(PostData);
+        console.log(JSON.stringify(PostData));
+        try {
+            const result = await BirdScanPost(URLorIP, ScanType);
+            console.log('Custom scan completed');
+            console.log(result);
+        }
+        catch (error) {
+            console.error('An error occurred:', error.message);
+        }
     }
     if (FullScanButton.classList.contains('Checked')) {
         let ScanType = 'FullScan';

@@ -1,3 +1,4 @@
+import {BirdScanPost} from './utils.js'
 
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
@@ -8,7 +9,7 @@ const RangeInputBox = document.getElementById('CustomScanRangeInput') as HTMLInp
 
 const SubmitButton = document.getElementById('SubmitButton')
 
-console.log('test')
+console.log('JS Script Loaded')
 
 function handleButtonClick(value: string): void {
     let ScanType = value
@@ -16,10 +17,8 @@ function handleButtonClick(value: string): void {
     const ButtonDict = {'CommonScanButton': CommonButton, 'FullScanButton':FullScanButton, 'CustomScanButton':CustomScanButton}
 
     let HtmlButtons = Object.keys(ButtonDict)
-    let TSButtons = Object.values(ButtonDict)
 
     HtmlButtons.forEach(ButtonName => {
-        TSButtons.forEach(TSButton => {
             let Button = document.getElementById(`${ButtonName}`) as HTMLInputElement
 
             if (ButtonName != ScanType) {
@@ -55,8 +54,8 @@ function handleButtonClick(value: string): void {
                 }
             }
         })
-    })
-}
+    }
+
 CommonButton.addEventListener('click', () => {
 
     handleButtonClick('CommonScanButton');
@@ -99,7 +98,7 @@ CustomScanButton.addEventListener('click', () => {
     }
 })
 
-SubmitButton.addEventListener('click', () => {
+SubmitButton.addEventListener('click', async () => {
 
     let URLorIPInput = document.getElementById('URLorIP') as HTMLInputElement
 
@@ -107,13 +106,35 @@ SubmitButton.addEventListener('click', () => {
 
     console.log(`URL or IP: ${URLorIP}`)
 
-    if (CommonButton.classList.contains('Checked')){
-        let ScanType = 'CommonScan'
+    if (CommonButton.classList.contains('Checked')) {
+        let ScanType = 'Common'
         console.log(`Scan Type: ${ScanType}`)
 
+        let PostData = {
+
+            URLorIP:URLorIP,
+            ScanType:ScanType
+
+        }
+
+
+
+        console.log(PostData)
+
+        console.log(JSON.stringify(PostData))
+
+        try {
+            const result = await BirdScanPost(URLorIP, ScanType)
+            console.log('Custom scan completed');
+            console.log(result);
+        } catch (error) {
+            console.error('An error occurred:', error.message);
+
+        }
     }
 
-    if (FullScanButton.classList.contains('Checked')){
+
+    if (FullScanButton.classList.contains('Checked')) {
 
         let ScanType = 'FullScan'
         console.log(`Scan Type: ${ScanType}`)
@@ -133,8 +154,6 @@ SubmitButton.addEventListener('click', () => {
         console.log(`Scan Type: ${ScanType}`)
 
     }
-
-
 
 
 })
