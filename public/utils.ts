@@ -7,12 +7,12 @@ export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:s
 
     let PostData: any
 
-    if (ScanType == 'CustomScan'){
+    if (ScanType == 'Custom'){
 
         PostData = {
             URLorIP:URLorIP,
             ScanType:ScanType,
-            PortRange:PortRange
+            InputRange:PortRange
         }
     } else {
          PostData = {
@@ -27,7 +27,6 @@ export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:s
         headers: { 'Content-Type': 'application/json' },
     });
     const content = await response.json();
-    console.log(content);
 
     return content;
 }

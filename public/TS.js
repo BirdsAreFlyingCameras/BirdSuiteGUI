@@ -70,7 +70,7 @@ SubmitButton.addEventListener('click', async () => {
         console.log(JSON.stringify(PostData));
         try {
             const result = await BirdScanPost(URLorIP, ScanType);
-            console.log('Custom scan completed');
+            console.log('Common scan completed');
             console.log(result);
         }
         catch (error) {
@@ -78,15 +78,41 @@ SubmitButton.addEventListener('click', async () => {
         }
     }
     if (FullScanButton.classList.contains('Checked')) {
-        let ScanType = 'FullScan';
+        let ScanType = 'Full';
+        let PostData = {
+            URLorIP: URLorIP,
+            ScanType: ScanType
+        };
         console.log(`Scan Type: ${ScanType}`);
+        console.log(`Post Data: ${JSON.stringify(PostData)}`);
+        try {
+            const result = await BirdScanPost(URLorIP, ScanType);
+            console.log('Full scan completed');
+            console.log(result);
+        }
+        catch (error) {
+            console.error('An error occurred:', error.message);
+        }
     }
     if (CustomScanButton.classList.contains('Checked')) {
-        let ScanType = 'CustomScan';
         let PortRangeInput = document.getElementById('PortRangeInput');
         let PortRange = PortRangeInput.value;
-        console.log(`Port Range: ${PortRange}`);
+        let ScanType = 'Custom';
+        let PostData = {
+            URLorIP: URLorIP,
+            ScanType: ScanType,
+            InputRange: PortRange
+        };
         console.log(`Scan Type: ${ScanType}`);
+        console.log(`Post Data: ${JSON.stringify(PostData)}`);
+        try {
+            const result = await BirdScanPost(URLorIP, ScanType, PortRange);
+            console.log('Full scan completed');
+            console.log(result);
+        }
+        catch (error) {
+            console.error('An error occurred:', error.message);
+        }
     }
 });
 //# sourceMappingURL=TS.js.map
