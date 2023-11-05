@@ -1,4 +1,3 @@
-
 export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:string) {
 
     if (ScanType == 'CustomScan' && PortRange == null){
@@ -31,3 +30,10 @@ export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:s
     return content;
 }
 
+export function DisplayErrorMessage(ErrorMessage:string) {
+
+    const ErrorBox = document.getElementById('ErrorBox')
+
+    ErrorBox.innerHTML = `<b>${ErrorMessage}</b>`
+
+}

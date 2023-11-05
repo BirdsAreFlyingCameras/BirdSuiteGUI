@@ -1,4 +1,4 @@
-import {BirdScanPost} from './utils.js'
+import {BirdScanPost, DisplayErrorMessage} from './utils.js'
 
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
@@ -91,7 +91,7 @@ CustomScanButton.addEventListener('click', () => {
 
     if (RangeInputBox.classList.contains('Toggled')) {
 
-        RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text" id="PortRangeInput">';
+        RangeInputBox.innerHTML = '<b>Range: 0</b> , <input type="text" id="PortRangeInput">';
 
     } else {
         RangeInputBox.innerHTML = ''
@@ -103,6 +103,13 @@ SubmitButton.addEventListener('click', async () => {
     let URLorIPInput = document.getElementById('URLorIP') as HTMLInputElement
 
     let URLorIP = URLorIPInput.value
+
+    if (URLorIP == ""){
+
+        DisplayErrorMessage("A Url or IP is Required")
+        return console.log("A Url or IP is Required")
+
+    }
 
     console.log(`URL or IP: ${URLorIP}`)
 
@@ -118,7 +125,6 @@ SubmitButton.addEventListener('click', async () => {
         }
 
 
-
         console.log(PostData)
 
         console.log(JSON.stringify(PostData))
@@ -132,7 +138,6 @@ SubmitButton.addEventListener('click', async () => {
 
         }
     }
-
 
     if (FullScanButton.classList.contains('Checked')) {
 
@@ -160,13 +165,18 @@ SubmitButton.addEventListener('click', async () => {
         }
     }
 
-
     if (CustomScanButton.classList.contains('Checked')) {
 
 
         let PortRangeInput = document.getElementById('PortRangeInput') as HTMLInputElement
 
         let PortRange = PortRangeInput.value
+
+        if (PortRange == ""){
+            DisplayErrorMessage("Custom Scan Requires A Port Range")
+            return console.log('Custom Scan Requires A Port Range')
+
+        }
 
 
         let ScanType = 'Custom'
@@ -188,7 +198,5 @@ SubmitButton.addEventListener('click', async () => {
             console.error('An error occurred:', error.message);
         }
     }
-
-
 
 })

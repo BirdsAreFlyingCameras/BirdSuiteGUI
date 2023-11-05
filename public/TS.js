@@ -1,4 +1,4 @@
-import { BirdScanPost } from './utils.js';
+import { BirdScanPost, DisplayErrorMessage } from './utils.js';
 const CommonButton = document.getElementById('CommonScanButton');
 const FullScanButton = document.getElementById('FullScanButton');
 const CustomScanButton = document.getElementById('CustomScanButton');
@@ -49,7 +49,7 @@ CustomScanButton.addEventListener('click', () => {
     RangeInputBox.classList.toggle('NotToggled');
     RangeInputBox.classList.toggle('Toggled');
     if (RangeInputBox.classList.contains('Toggled')) {
-        RangeInputBox.innerHTML = '<b>Range: </b> 0, <input type="text" id="PortRangeInput">';
+        RangeInputBox.innerHTML = '<b>Range: 0</b> , <input type="text" id="PortRangeInput">';
     }
     else {
         RangeInputBox.innerHTML = '';
@@ -58,6 +58,10 @@ CustomScanButton.addEventListener('click', () => {
 SubmitButton.addEventListener('click', async () => {
     let URLorIPInput = document.getElementById('URLorIP');
     let URLorIP = URLorIPInput.value;
+    if (URLorIP == "") {
+        DisplayErrorMessage("A Url or IP is Required");
+        return console.log("A Url or IP is Required");
+    }
     console.log(`URL or IP: ${URLorIP}`);
     if (CommonButton.classList.contains('Checked')) {
         let ScanType = 'Common';
@@ -97,6 +101,10 @@ SubmitButton.addEventListener('click', async () => {
     if (CustomScanButton.classList.contains('Checked')) {
         let PortRangeInput = document.getElementById('PortRangeInput');
         let PortRange = PortRangeInput.value;
+        if (PortRange == "") {
+            DisplayErrorMessage("Custom Scan Requires A Port Range");
+            return console.log('Custom Scan Requires A Port Range');
+        }
         let ScanType = 'Custom';
         let PostData = {
             URLorIP: URLorIP,
