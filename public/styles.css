@@ -1,0 +1,31 @@
+.body {
+  background-color: blue;
+}
+
+.SectionHeader {
+  color: black;
+}
+
+.InputBox {
+  color: black;
+}
+
+.Toggled {
+  display: block;
+}
+
+.NotToggled {
+  display: none;
+}
+
+.ScanTypeButtonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.SubmitButton {
+  width: fit-content;
+  height: fit-content;
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Bird Suite Web</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+    <div class="BirdScanMain">
+
+        <div class="SectionHeader">Url or IP</div>
+
+
+                <input type="text" id="URLorIP" placeholder="www.placeholder.com" class="InputBox">
+
+
+            <div class="ScanTypeButtonContainer">
+
+                <label class="CheckBox">
+                       <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
+                </label>
+
+                <label class="CheckBox">
+                    <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
+                </label>
+
+                <label class="CheckBox">
+                    <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
+                </label>
+                    <div id="CustomScanRangeInput" class="NotToggled"></div>
+
+                <button id="SubmitButton" class="SubmitButton">Submit</button>
+
+            </div>
+    </div>
+
+    <script src="TS.js"></script>
+
+    </body>
+</html>

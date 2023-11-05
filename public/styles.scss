@@ -1,0 +1,53 @@
+$TextColor: black;
+
+.body{
+
+  background-color: blue;
+
+}
+
+.SectionHeader{
+
+  color: $TextColor;
+
+}
+
+.InputBox{
+
+  color: $TextColor;
+
+}
+
+.Toggled{
+
+  display: block;
+
+
+}
+
+.NotToggled{
+
+  display: none;
+
+}
+
+.ScanTypeButtonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.SubmitButton{
+
+  width: fit-content;
+  height: fit-content;
+
+}
+
+.NotChecked{
+
+}
+
+.Checked{
+
+}
