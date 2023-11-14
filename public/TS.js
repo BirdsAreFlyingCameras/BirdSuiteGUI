@@ -119,7 +119,7 @@ SubmitButton.addEventListener('click', async () => {
         console.log(`Post Data: ${JSON.stringify(PostData)}`);
         try {
             const result = await BirdScanPost(URLorIP, ScanType, PortRange);
-            console.log('Full scan completed');
+            console.log('Custom scan completed');
             console.log(result);
         }
         catch (error) {

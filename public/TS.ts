@@ -200,7 +200,7 @@ SubmitButton.addEventListener('click', async () => {
 
         try {
             const result = await BirdScanPost(URLorIP, ScanType, PortRange)
-            console.log('Full scan completed');
+            console.log('Custom scan completed');
             console.log(result);
         } catch (error) {
             console.error('An error occurred:', error.message);
