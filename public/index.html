@@ -5,37 +5,32 @@
         <meta charset="UTF-8">
         <title>Bird Suite Web</title>
         <link rel="stylesheet" href="styles.css">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500&display=swap" rel="stylesheet">
     </head>
     <body>
 
     <div class="BirdScanMain">
+        <div class="SectionHeader">Url or IP</div><div id="ErrorBox"></div>
+        <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="URLorIPInputBox">
 
-        <div class="SectionHeader">Url or IP</div>
+        <div class="ScanTypeButtonContainer">
+            <label class="CheckBox">
+                <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
+            </label>
+            <label class="CheckBox">
+                <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
+            </label>
+            <label class="CheckBox">
+                <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
+            </label>
+            <div id="CustomScanRangeInput" class="NotToggled"></div>
+            <button id="SubmitButton" class="SubmitButton">Submit</button>
 
-
-        <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="InputBox">
-
-
-            <div class="ScanTypeButtonContainer">
-
-                <label class="CheckBox">
-                       <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
-                </label>
-
-                <label class="CheckBox">
-                    <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
-                </label>
-
-                <label class="CheckBox">
-                    <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
-                </label>
-                    <div id="CustomScanRangeInput" class="NotToggled"></div>
-
-                <button id="SubmitButton" class="SubmitButton">Submit</button>
-
-            </div>
-
-            <div id="ErrorBox"></div>
+        </div>
+        <div id="TableDiv"></div>
     </div>
 
     <script type="module" src="TS.js"></script>

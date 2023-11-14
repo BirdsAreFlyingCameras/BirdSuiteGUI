@@ -34,6 +34,47 @@ export function DisplayErrorMessage(ErrorMessage:string) {
 
     const ErrorBox = document.getElementById('ErrorBox')
 
-    ErrorBox.innerHTML = `<b>${ErrorMessage}</b>`
+    ErrorBox.innerHTML = `<b class="ErrorMessage">${ErrorMessage}</b>`
+
+}
+
+
+export async function BirdScanOutputTable(JsonData, TableID) {
+
+    let TableDiv = TableID
+
+    let JsonParsed = JSON.parse(JsonData)
+
+    console.log(`JsonParsed: ${JsonParsed}`)
+
+    let PortNumbers = Object.keys(JsonParsed)
+
+    let Services = Object.values(JsonParsed)
+
+    let Table = document.createElement('table')
+
+    Table.innerHTML = '<th>Port</th><th>Service</th>'
+
+    for (let PortNumber in PortNumbers) {
+        for (let Service in Services){
+
+            console.log(PortNumber)
+            console.log(Service)
+
+            let NewRow = Table.insertRow()
+
+
+            let RowData = `<tr><td>${PortNumber}</td> <td>${Service}</td></tr>`
+
+            NewRow.innerHTML = RowData
+
+            Table.appendChild(NewRow)
+
+
+        }
+
+    }
+
+    TableDiv.appendChild(Table)
 
 }

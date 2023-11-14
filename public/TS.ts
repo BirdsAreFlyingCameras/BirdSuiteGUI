@@ -1,4 +1,4 @@
-import {BirdScanPost, DisplayErrorMessage} from './utils.js'
+import {BirdScanOutputTable, BirdScanPost, DisplayErrorMessage} from './utils.js'
 
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
@@ -91,7 +91,7 @@ CustomScanButton.addEventListener('click', () => {
 
     if (RangeInputBox.classList.contains('Toggled')) {
 
-        RangeInputBox.innerHTML = '<b>Range: 0</b> , <input type="text" id="PortRangeInput">';
+        RangeInputBox.innerHTML = '<div class="PortRangeInputDiv">Range: 0, <input type="text" placeholder="65353" id="PortRangeInput"></div>';
 
     } else {
         RangeInputBox.innerHTML = ''
@@ -101,6 +101,8 @@ CustomScanButton.addEventListener('click', () => {
 SubmitButton.addEventListener('click', async () => {
 
     let URLorIPInput = document.getElementById('URLorIP') as HTMLInputElement
+
+    let TableDiv = document.getElementById('TableDiv')
 
     let URLorIP = URLorIPInput.value
 
@@ -133,11 +135,18 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType)
             console.log('Common scan completed');
             console.log(result);
+
+            let JsonDataForTable = JSON.stringify(result)
+
+            BirdScanOutputTable(JsonDataForTable, TableDiv)
+
         } catch (error) {
             console.error('An error occurred:', error.message);
 
         }
     }
+
+
 
     if (FullScanButton.classList.contains('Checked')) {
 
@@ -154,19 +163,19 @@ SubmitButton.addEventListener('click', async () => {
 
         console.log(`Post Data: ${JSON.stringify(PostData)}`)
 
-
         try {
             const result = await BirdScanPost(URLorIP, ScanType)
             console.log('Full scan completed');
             console.log(result);
+            BirdScanOutputTable(result, TableDiv)
+
+
         } catch (error) {
             console.error('An error occurred:', error.message);
-
         }
     }
 
     if (CustomScanButton.classList.contains('Checked')) {
-
 
         let PortRangeInput = document.getElementById('PortRangeInput') as HTMLInputElement
 
@@ -177,7 +186,6 @@ SubmitButton.addEventListener('click', async () => {
             return console.log('Custom Scan Requires A Port Range')
 
         }
-
 
         let ScanType = 'Custom'
 

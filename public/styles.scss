@@ -1,28 +1,48 @@
 $TextColor: black;
+$Font: 'Archivo', sans-serif;
+$BackGroundColor: #d2d2d2;
 
-.body{
+$LineSpaceMargin: 0.4em;
 
-  background-color: blue;
+.BirdScanMain{
+
+  background-color: $BackGroundColor;
+  font-family: $Font;
+  color: $TextColor;
+
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 11.15em;
+
+  padding: 0.5em;
+
+  border-radius: 5%;
+
 
 }
 
 .SectionHeader{
 
-  color: $TextColor;
+  margin-bottom: $LineSpaceMargin;
 
 }
 
-.InputBox{
+.URLorIPInputBox {
 
-  color: $TextColor;
+  margin-bottom: $LineSpaceMargin;
+
+  width: fit-content;
+  height: fit-content;
+
+  padding: 0;
+  border: none;
+  outline: none;
 
 }
 
 .Toggled{
-
   display: block;
-
-
 }
 
 .NotToggled{
@@ -41,8 +61,103 @@ $TextColor: black;
 
   width: fit-content;
   height: fit-content;
+  background-color: white;
+  border-radius: 0.5em;
+
+  font: $Font;
+  margin-top: $LineSpaceMargin;
+  border: 1px solid black;
+
+
 
 }
+
+.SubmitButton:hover{
+
+  background-color: lightblue;
+  cursor: pointer;
+
+
+}
+
+#CommonScanButton,
+#FullScanButton,
+#CustomScanButton {
+
+  width: 1.3em;
+  height: 1.3em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  border: 0.1em solid black;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+
+
+
+}
+
+
+#CommonScanButton:hover,
+#FullScanButton:hover,
+#CustomScanButton:hover {
+
+  background-color: lightblue;
+
+}
+#CommonScanButton:checked,
+#FullScanButton:checked,
+#CustomScanButton:checked {
+  border: 0.1em solid black;
+
+  background: radial-gradient(black 40%,white 20%);
+
+}
+
+
+
+.PortRangeInputDiv{
+
+  align-items: center;
+  margin: 0;
+  display: flex;
+
+}
+
+.PortRangeInputText{
+  margin: 0;
+  width: fit-content;
+
+}
+
+#PortRangeInput {
+  width: 20.5%;
+  max-width: 20.5%;
+  height: fit-content;
+}
+
+
+
+
+#ErrorBox{
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  width: fit-content;
+
+}
+
+.ErrorMessage{
+
+  color: red;
+  font-size: 0.5em;
+
+}
+
+
 
 .NotChecked{
 

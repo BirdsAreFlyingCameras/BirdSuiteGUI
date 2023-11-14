@@ -1,4 +1,4 @@
-import { BirdScanPost, DisplayErrorMessage } from './utils.js';
+import { BirdScanOutputTable, BirdScanPost, DisplayErrorMessage } from './utils.js';
 const CommonButton = document.getElementById('CommonScanButton');
 const FullScanButton = document.getElementById('FullScanButton');
 const CustomScanButton = document.getElementById('CustomScanButton');
@@ -49,7 +49,7 @@ CustomScanButton.addEventListener('click', () => {
     RangeInputBox.classList.toggle('NotToggled');
     RangeInputBox.classList.toggle('Toggled');
     if (RangeInputBox.classList.contains('Toggled')) {
-        RangeInputBox.innerHTML = '<b>Range: 0</b> , <input type="text" id="PortRangeInput">';
+        RangeInputBox.innerHTML = '<div class="PortRangeInputDiv">Range: 0, <input type="text" placeholder="65353" id="PortRangeInput"></div>';
     }
     else {
         RangeInputBox.innerHTML = '';
@@ -57,6 +57,7 @@ CustomScanButton.addEventListener('click', () => {
 });
 SubmitButton.addEventListener('click', async () => {
     let URLorIPInput = document.getElementById('URLorIP');
+    let TableDiv = document.getElementById('TableDiv');
     let URLorIP = URLorIPInput.value;
     if (URLorIP == "") {
         DisplayErrorMessage("A Url or IP is Required");
@@ -76,6 +77,8 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType);
             console.log('Common scan completed');
             console.log(result);
+            let JsonDataForTable = JSON.stringify(result);
+            BirdScanOutputTable(JsonDataForTable, TableDiv);
         }
         catch (error) {
             console.error('An error occurred:', error.message);
@@ -93,6 +96,7 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType);
             console.log('Full scan completed');
             console.log(result);
+            BirdScanOutputTable(result, TableDiv);
         }
         catch (error) {
             console.error('An error occurred:', error.message);
