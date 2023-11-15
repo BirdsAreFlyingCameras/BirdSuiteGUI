@@ -58,7 +58,9 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     let Table = document.createElement('table')
 
-    Table.innerHTML = '<th>Service</th><th>Port</th>'
+    Table.classList.add('BirdScanTable')
+
+    Table.innerHTML = '<th class="ServiceHeader">Service</th><th class="PortHeader">Port</th>'
 
     PortNumbers.forEach((PortNumber, index) => {
 
@@ -71,9 +73,7 @@ export async function BirdScanOutputTable(JsonData, TableID) {
             let NewRow = Table.insertRow()
 
 
-            let RowData = `<tr><td>${Service}</td> <td>${PortNumber}</td></tr>`
-
-            NewRow.innerHTML = RowData
+            NewRow.innerHTML = `<tr><td class="TableService">${Service}</td> <td class="TablePort">${PortNumber}</td></tr>`
 
             Table.appendChild(NewRow)
 
@@ -81,5 +81,8 @@ export async function BirdScanOutputTable(JsonData, TableID) {
         TableDiv.appendChild(Table)
 
         })
+
+
+
     }
 

@@ -12,26 +12,28 @@
     </head>
     <body>
 
-    <div class="BirdScanMain">
-        <div class="SectionHeader">Url or IP</div><div id="ErrorBox"></div>
-        <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="URLorIPInputBox">
+    <div class="BirdScanContainer">
+        <div class="BirdScanMain">
+            <div class="SectionHeader">Url or IP</div><div id="ErrorBox"></div>
+            <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="URLorIPInputBox">
 
-        <div class="ScanTypeButtonContainer">
-            <label class="CheckBox">
-                <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
-            </label>
-            <label class="CheckBox">
-                <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
-            </label>
-            <label class="CheckBox">
-                <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
-            </label>
-            <div id="CustomScanRangeInput" class="NotToggled"></div>
-            <button id="SubmitButton" class="SubmitButton">Submit</button>
-
+            <div class="ScanTypeButtonContainer">
+                <label class="CheckBox">
+                    <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
+                </label>
+                <label class="CheckBox">
+                    <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
+                </label>
+                <label class="CheckBox">
+                    <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
+                </label>
+                <div id="CustomScanRangeInput" class="NotToggled"></div>
+                <button id="SubmitButton" class="SubmitButton">Submit</button>
+            </div>
         </div>
         <div id="TableDiv"></div>
     </div>
+
 
     <script type="module" src="TS.js"></script>
 
