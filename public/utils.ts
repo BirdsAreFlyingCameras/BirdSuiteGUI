@@ -39,11 +39,15 @@ export function DisplayErrorMessage(ErrorMessage:string) {
 }
 
 
+
+
+
 export async function BirdScanOutputTable(JsonData, TableID) {
 
     let TableDiv = TableID
 
-    let JsonParsed = JSON.parse(JsonData)
+    let JsonParsed = JsonData
+
 
     console.log(`JsonParsed: ${JsonParsed}`)
 
@@ -53,28 +57,27 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     let Table = document.createElement('table')
 
-    Table.innerHTML = '<th>Port</th><th>Service</th>'
+    Table.innerHTML = '<th>Service</th><th>Port</th>'
 
-    for (let PortNumber in PortNumbers) {
-        for (let Service in Services){
+    PortNumbers.forEach(PortNumber => {
+        Services.forEach(Service => {
 
             console.log(PortNumber)
             console.log(Service)
 
+
             let NewRow = Table.insertRow()
 
 
-            let RowData = `<tr><td>${PortNumber}</td> <td>${Service}</td></tr>`
+            let RowData = `<tr><td>${Service}</td> <td>${PortNumber}</td></tr>`
 
             NewRow.innerHTML = RowData
 
             Table.appendChild(NewRow)
 
 
-        }
+        TableDiv.appendChild(Table)
 
-    }
-
-    TableDiv.appendChild(Table)
-
+        })
+    })
 }

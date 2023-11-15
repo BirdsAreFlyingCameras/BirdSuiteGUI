@@ -77,7 +77,8 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType);
             console.log('Common scan completed');
             console.log(result);
-            let JsonDataForTable = JSON.stringify(result);
+            let ResultStr = JSON.stringify(result);
+            let JsonDataForTable = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataForTable, TableDiv);
         }
         catch (error) {
@@ -96,7 +97,8 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType);
             console.log('Full scan completed');
             console.log(result);
-            let JsonDataForTable = JSON.stringify(result);
+            let ResultStr = JSON.stringify(result);
+            let JsonDataForTable = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataForTable, TableDiv);
         }
         catch (error) {
@@ -122,7 +124,8 @@ SubmitButton.addEventListener('click', async () => {
             const result = await BirdScanPost(URLorIP, ScanType, PortRange);
             console.log('Custom scan completed');
             console.log(result);
-            let JsonDataForTable = JSON.stringify(result);
+            let ResultStr = JSON.stringify(result);
+            let JsonDataForTable = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataForTable, TableDiv);
         }
         catch (error) {

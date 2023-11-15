@@ -136,7 +136,9 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Common scan completed');
             console.log(result);
 
-            let JsonDataForTable = JSON.stringify(result)
+            let ResultStr = JSON.stringify(result)
+
+            let JsonDataForTable = JSON.parse(ResultStr)
 
             BirdScanOutputTable(JsonDataForTable, TableDiv)
 
@@ -168,8 +170,9 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Full scan completed');
             console.log(result);
 
-            let JsonDataForTable = JSON.stringify(result)
+            let ResultStr = JSON.stringify(result)
 
+            let JsonDataForTable = JSON.parse(ResultStr)
 
             BirdScanOutputTable(JsonDataForTable, TableDiv)
 
@@ -207,7 +210,9 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Custom scan completed');
             console.log(result);
 
-            let JsonDataForTable = JSON.stringify(result)
+            let ResultStr = JSON.stringify(result)
+
+            let JsonDataForTable = JSON.parse(ResultStr)
 
             BirdScanOutputTable(JsonDataForTable, TableDiv)
 
