@@ -77,10 +77,17 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
             Table.appendChild(NewRow)
 
-
         TableDiv.appendChild(Table)
-
         })
+
+
+    let DownloadButton = document.createElement('button')
+
+    DownloadButton.classList.add('DownloadButton')
+
+    DownloadButton.textContent = 'Download'
+
+    TableDiv.appendChild(DownloadButton)
 
 
 

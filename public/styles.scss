@@ -43,12 +43,27 @@ $LineSpaceMargin: 0.4em;
 
   width: fit-content;
   height: fit-content;
+  border: 0.1em solid black;
 
-  padding: 0;
-  border: none;
-  outline: none;
+  outline:none;
+  box-shadow: none;
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 2px;
 
 }
+
+.URLorIPInputBox:hover{
+
+  background-color: lightblue;
+  cursor: pointer;
+
+}
+
+.URLorIPInputBox:focus{
+  outline: none;
+}
+
 
 .Toggled{
   display: block;
@@ -75,18 +90,17 @@ $LineSpaceMargin: 0.4em;
 
   font: $Font;
   margin-top: $LineSpaceMargin;
-  border: 1px solid black;
+  border: 0.1em solid black;
 
-
+  appearance: none;
+  -webkit-appearance: none;
 
 }
 
-.SubmitButton:hover{
+.SubmitButton:hover {
 
   background-color: lightblue;
   cursor: pointer;
-
-
 }
 
 #CommonScanButton,
@@ -181,13 +195,19 @@ $LineSpaceMargin: 0.4em;
 
   background-color: $BackGroundColor;
   font-family: $Font;
+  border-radius: 5%;
 
+  display: flex;
+
+  flex-direction: column;
 
 }
 
 .BirdScanTable{
 
-  border: 1px solid black;
+
+  margin: 0.5em;
+  border: 2px solid black;
   width: fit-content;
   height: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
@@ -199,16 +219,16 @@ $LineSpaceMargin: 0.4em;
 .PortHeader{
 
   text-align: right;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 
 
 }
 
 .ServiceHeader{
   text-align: left;
-  padding-left: 5px;
-  padding-right: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
 
 
 }
@@ -231,10 +251,9 @@ $LineSpaceMargin: 0.4em;
 }
 
 th, td {
-  border: 1px solid black; /* Adds border to the table and all cells */
-
-
+  border: 2px solid black; /* Adds border to the table and all cells */
 }
+
 
 th {
   text-align: center;
@@ -246,3 +265,40 @@ td {
   vertical-align: bottom;
 }
 
+
+.DownloadButton{
+
+  display: flex;
+
+  margin-top: 2em;
+
+  padding-left: 6px;
+  padding-right: 6px;
+
+  padding-top: 1px;
+  padding-bottom: 1px;
+
+
+  width: fit-content;
+  height: fit-content;
+
+  align-self: center;
+
+  background-color: white;
+  border-radius: 0.5em;
+
+  font: $Font;
+  border: 0.1em solid black;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+}
+
+.DownloadButton:hover{
+
+  background-color: lightblue;
+
+  cursor: pointer;
+
+}
