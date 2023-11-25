@@ -218,6 +218,8 @@ $LineSpaceMargin: 0.4em;
 
   flex-direction: column;
 
+  box-sizing: border-box;
+
   align-self: end;
 
 }
@@ -227,8 +229,8 @@ $LineSpaceMargin: 0.4em;
 
   margin: 0.5em;
   border: 2px solid $BorderColor;
+
   width: fit-content;
-  height: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
   align-content: center;
 

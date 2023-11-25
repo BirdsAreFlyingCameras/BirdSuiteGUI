@@ -152,6 +152,7 @@
   border-top: 0.1em solid #bdbdbd;
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
   align-self: end;
 }
 
@@ -159,7 +160,6 @@
   margin: 0.5em;
   border: 2px solid #bdbdbd;
   width: fit-content;
-  height: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
   align-content: center;
 }

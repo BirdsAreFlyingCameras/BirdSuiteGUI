@@ -39,6 +39,17 @@ export function DisplayErrorMessage(ErrorMessage:string) {
 }
 
 
+export function GetDimensions(ElementID) {
+
+    let ElementToCompute = document.getElementById(ElementID)
+
+    let ElementHeight = ElementToCompute.offsetHeight
+    let ElementWidth = ElementToCompute.offsetWidth
+
+    return {ElementHeight, ElementWidth}
+
+
+}
 
 
 
@@ -47,6 +58,9 @@ export async function BirdScanOutputTable(JsonData, TableID) {
     let TableDiv = TableID
 
     let JsonParsed = JsonData
+
+
+
 
 
     console.log(`JsonParsed: ${JsonParsed}`)
@@ -60,6 +74,18 @@ export async function BirdScanOutputTable(JsonData, TableID) {
     let BirdScanMain = document.getElementById('BirdScanMain')
 
     let Table = document.createElement('table')
+
+
+
+    let Dimensions = GetDimensions('BirdScanMain')
+
+
+    let TableHeight = Dimensions.ElementHeight
+    let TableWidth = Dimensions.ElementWidth
+
+    console.log(`Table Height: ${TableHeight}`)
+    console.log(`Table Width: ${TableWidth}`)
+
 
 
     BirdScanMain.classList.toggle('BirdScanMain')
@@ -95,6 +121,9 @@ export async function BirdScanOutputTable(JsonData, TableID) {
     DownloadButton.textContent = 'Download'
 
     TableDiv.appendChild(DownloadButton)
+
+    TableDiv.style.height = `${TableHeight}px`
+
 
     BirdScanContainer.appendChild(TableDiv)
 
