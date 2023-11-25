@@ -55,8 +55,15 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     let Services = Object.values(JsonParsed)
 
+    let BirdScanContainer = document.getElementById('BirdScanContainer')
+
+    let BirdScanMain = document.getElementById('BirdScanMain')
 
     let Table = document.createElement('table')
+
+
+    BirdScanMain.classList.toggle('BirdScanMain')
+    BirdScanMain.classList.toggle('BirdScanMainTableDisplayed')
 
     Table.classList.add('BirdScanTable')
 
@@ -89,6 +96,7 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     TableDiv.appendChild(DownloadButton)
 
+    BirdScanContainer.appendChild(TableDiv)
 
 
     }

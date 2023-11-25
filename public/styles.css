@@ -4,14 +4,30 @@
 }
 
 .BirdScanMain {
-  background-color: #d2d2d2;
+  background-color: #e9e9e9;
   font-family: "Archivo", sans-serif;
   color: black;
+  border: 0.1em solid #bdbdbd;
   width: fit-content;
   height: fit-content;
   max-width: 11.15em;
   padding: 0.5em;
   border-radius: 5%;
+}
+
+.BirdScanMainTableDisplayed {
+  background-color: #e9e9e9;
+  font-family: "Archivo", sans-serif;
+  color: black;
+  border-left: 0.1em solid #bdbdbd;
+  border-bottom: 0.1em solid #bdbdbd;
+  border-top: 0.1em solid #bdbdbd;
+  width: fit-content;
+  height: fit-content;
+  max-width: 11.15em;
+  padding: 0.5em;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
 }
 
 .SectionHeader {
@@ -127,16 +143,21 @@
 }
 
 #TableDiv {
-  background-color: #d2d2d2;
+  background-color: #e9e9e9;
   font-family: "Archivo", sans-serif;
-  border-radius: 5%;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+  border-right: 0.1em solid #bdbdbd;
+  border-bottom: 0.1em solid #bdbdbd;
+  border-top: 0.1em solid #bdbdbd;
   display: flex;
   flex-direction: column;
+  align-self: end;
 }
 
 .BirdScanTable {
   margin: 0.5em;
-  border: 2px solid black;
+  border: 2px solid #bdbdbd;
   width: fit-content;
   height: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
@@ -168,7 +189,7 @@
 }
 
 th, td {
-  border: 2px solid black; /* Adds border to the table and all cells */
+  border: 0.1em solid #bdbdbd;
 }
 
 th {
@@ -202,6 +223,10 @@ td {
 .DownloadButton:hover {
   background-color: lightblue;
   cursor: pointer;
+}
+
+.DownloadButton:active {
+  background-color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */

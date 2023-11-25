@@ -1,7 +1,7 @@
 $TextColor: black;
 $Font: 'Archivo', sans-serif;
-$BackGroundColor: #d2d2d2;
-
+$BackGroundColor: #e9e9e9;
+$BorderColor: #bdbdbd;
 $LineSpaceMargin: 0.4em;
 
 
@@ -18,6 +18,7 @@ $LineSpaceMargin: 0.4em;
   background-color: $BackGroundColor;
   font-family: $Font;
   color: $TextColor;
+  border: 0.1em solid $BorderColor;
 
   width: fit-content;
   height: fit-content;
@@ -28,8 +29,28 @@ $LineSpaceMargin: 0.4em;
 
   border-radius: 5%;
 
-
 }
+
+.BirdScanMainTableDisplayed{
+
+  background-color: $BackGroundColor;
+  font-family: $Font;
+  color: $TextColor;
+  border-left: 0.1em solid $BorderColor;
+  border-bottom: 0.1em solid $BorderColor;
+  border-top: 0.1em solid $BorderColor;
+
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 11.15em;
+
+  padding: 0.5em;
+
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
+}
+
 
 .SectionHeader{
 
@@ -180,26 +201,24 @@ $LineSpaceMargin: 0.4em;
 
 }
 
-
-
-.NotChecked{
-
-}
-
-.Checked{
-
-}
-
-
 #TableDiv {
 
   background-color: $BackGroundColor;
+
   font-family: $Font;
-  border-radius: 5%;
+
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+
+  border-right: 0.1em solid $BorderColor;
+  border-bottom: 0.1em solid $BorderColor;
+  border-top: 0.1em solid $BorderColor;
 
   display: flex;
 
   flex-direction: column;
+
+  align-self: end;
 
 }
 
@@ -207,7 +226,7 @@ $LineSpaceMargin: 0.4em;
 
 
   margin: 0.5em;
-  border: 2px solid black;
+  border: 2px solid $BorderColor;
   width: fit-content;
   height: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
@@ -251,7 +270,7 @@ $LineSpaceMargin: 0.4em;
 }
 
 th, td {
-  border: 2px solid black; /* Adds border to the table and all cells */
+  border: 0.1em solid $BorderColor;
 }
 
 
@@ -302,3 +321,20 @@ td {
   cursor: pointer;
 
 }
+
+.DownloadButton:active{
+
+  background-color: white;
+
+
+}
+
+
+.NotChecked{
+
+}
+
+.Checked{
+
+}
+
