@@ -168,12 +168,16 @@
   text-align: right;
   margin-left: 5px;
   margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .ServiceHeader {
   text-align: left;
   margin-left: 5px;
   margin-right: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
 }
 
 .TablePort {
@@ -189,7 +193,7 @@
 }
 
 th, td {
-  border: 0.1em solid #bdbdbd;
+  border: 0.1em solid black;
 }
 
 th {
@@ -204,7 +208,7 @@ td {
 
 .DownloadButton {
   display: flex;
-  margin-top: 2em;
+  margin-top: 2.5em;
   padding-left: 6px;
   padding-right: 6px;
   padding-top: 1px;
@@ -212,7 +216,7 @@ td {
   width: fit-content;
   height: fit-content;
   align-self: center;
-  background-color: white;
+  background-color: #e9e9e9;
   border-radius: 0.5em;
   font: "Archivo", sans-serif;
   border: 0.1em solid black;
@@ -226,7 +230,7 @@ td {
 }
 
 .DownloadButton:active {
-  background-color: white;
+  background-color: #e9e9e9;
 }
 
 /*# sourceMappingURL=styles.css.map */

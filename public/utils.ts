@@ -30,6 +30,7 @@ export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:s
     return content;
 }
 
+
 export function DisplayErrorMessage(ErrorMessage:string) {
 
     const ErrorBox = document.getElementById('ErrorBox')
@@ -50,7 +51,6 @@ export function GetDimensions(ElementID) {
 
 
 }
-
 
 
 export async function BirdScanOutputTable(JsonData, TableID) {

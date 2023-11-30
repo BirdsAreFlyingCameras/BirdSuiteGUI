@@ -240,23 +240,31 @@ $LineSpaceMargin: 0.4em;
 .PortHeader{
 
   text-align: right;
+
   margin-left: 5px;
   margin-right: 5px;
 
+  padding-left: 5px;
+  padding-right: 5px;
 
 }
 
 .ServiceHeader{
+
   text-align: left;
+
   margin-left: 5px;
   margin-right: 5px;
 
+  padding-left: 5px;
+  padding-right: 5px;
 
 }
 
 .TablePort{
 
   text-align: right;
+
   padding-left: 5px;
   padding-right: 5px;
 
@@ -265,6 +273,7 @@ $LineSpaceMargin: 0.4em;
 
 .TableService{
   text-align: left;
+
   padding-left: 5px;
   padding-right: 5px;
 
@@ -272,7 +281,7 @@ $LineSpaceMargin: 0.4em;
 }
 
 th, td {
-  border: 0.1em solid $BorderColor;
+  border: 0.1em solid black;
 }
 
 
@@ -291,7 +300,7 @@ td {
 
   display: flex;
 
-  margin-top: 2em;
+  margin-top: 2.5em;
 
   padding-left: 6px;
   padding-right: 6px;
@@ -305,7 +314,7 @@ td {
 
   align-self: center;
 
-  background-color: white;
+  background-color: $BackGroundColor;
   border-radius: 0.5em;
 
   font: $Font;
@@ -326,7 +335,7 @@ td {
 
 .DownloadButton:active{
 
-  background-color: white;
+  background-color: $BackGroundColor;
 
 
 }
