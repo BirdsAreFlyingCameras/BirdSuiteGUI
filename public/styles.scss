@@ -59,6 +59,10 @@ $LineSpaceMargin: 0.4em;
 }
 
 .URLorIPInputBox {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+
+  box-sizing: border-box;
+  border-radius: 0.3em; /* Adjust as needed */
 
   margin-bottom: $LineSpaceMargin;
 
@@ -67,19 +71,12 @@ $LineSpaceMargin: 0.4em;
   border: 0.1em solid black;
 
   outline:none;
-  box-shadow: none;
   appearance: none;
-  -webkit-appearance: none;
   padding: 2px;
 
 }
 
-.URLorIPInputBox:hover{
 
-  background-color: lightblue;
-  cursor: pointer;
-
-}
 
 .URLorIPInputBox:focus{
   outline: none;
@@ -162,26 +159,41 @@ $LineSpaceMargin: 0.4em;
 
 
 
-.PortRangeInputDiv{
-
+.PortRangeInputDiv {
   align-items: center;
-  margin: 0;
+  margin-left: 2em;
   display: flex;
-
 }
 
-.PortRangeInputText{
+.PortRangeInputText {
   margin: 0;
   width: fit-content;
-
 }
 
 #PortRangeInput {
-  width: 20.5%;
-  max-width: 20.5%;
+  -webkit-box-shadow:0 0 0 50px white inset;
+
+  width: 29%;
+  max-width: 29%;
   height: fit-content;
+  box-sizing: border-box;
+  border-radius: 0.3em;
+  border: 0.1em solid black;
 }
 
+#PortRangeInput:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+
+  outline:none;
+  appearance: none;
+  -webkit-appearance: none;
+
+  width: 29%;
+  max-width: 29%;
+  height: fit-content;
+  border-radius: 0.3em;
+
+}
 
 
 
@@ -228,7 +240,7 @@ $LineSpaceMargin: 0.4em;
 
 
   margin: 0.5em;
-  border: 2px solid $BorderColor;
+  border: 1px solid black;
 
   width: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
@@ -300,13 +312,12 @@ td {
 
   display: flex;
 
-  margin-top: 2.5em;
+  flex-direction: column;
 
   padding-left: 6px;
   padding-right: 6px;
 
   padding-top: 1px;
-  padding-bottom: 1px;
 
 
   width: fit-content;
@@ -314,7 +325,9 @@ td {
 
   align-self: center;
 
-  background-color: $BackGroundColor;
+  margin-left: 0.5em;
+
+  background-color: white;
   border-radius: 0.5em;
 
   font: $Font;
