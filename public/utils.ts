@@ -59,10 +59,6 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     let JsonParsed = JsonData
 
-
-
-
-
     console.log(`JsonParsed: ${JsonParsed}`)
 
     let PortNumbers = Object.keys(JsonParsed)
@@ -131,3 +127,22 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     }
 
+
+export async function DownloadBirdScanResult(JsonData, FileType, URLorIP) {
+
+    let PostData = {
+        "JsonData":JsonData,
+        "URLorIP": URLorIP,
+        "FileType":FileType
+    }
+
+    const response = await fetch('http://localhost:8000/BirdScan/Download', {
+        method: 'POST',
+        body: JSON.stringify(PostData),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    const DownloadFile = await response.json();
+
+    return DownloadFile;
+
+}

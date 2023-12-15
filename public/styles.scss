@@ -121,6 +121,12 @@ $LineSpaceMargin: 0.4em;
   cursor: pointer;
 }
 
+.SubmitButton:active {
+
+  background-color: white;
+
+}
+
 #CommonScanButton,
 #FullScanButton,
 #CustomScanButton {
@@ -356,7 +362,7 @@ td {
 
 .DownloadButton:active{
 
-  background-color: $BackGroundColor;
+  background-color: white;
 
 
 }

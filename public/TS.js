@@ -78,8 +78,8 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Common scan completed');
             console.log(result);
             let ResultStr = JSON.stringify(result);
-            let JsonDataForTable = JSON.parse(ResultStr);
-            BirdScanOutputTable(JsonDataForTable, TableDiv);
+            let JsonDataParsed = JSON.parse(ResultStr);
+            BirdScanOutputTable(JsonDataParsed, TableDiv);
         }
         catch (error) {
             console.error('An error occurred:', error.message);
@@ -98,8 +98,8 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Full scan completed');
             console.log(result);
             let ResultStr = JSON.stringify(result);
-            let JsonDataForTable = JSON.parse(ResultStr);
-            BirdScanOutputTable(JsonDataForTable, TableDiv);
+            let JsonDataParsed = JSON.parse(ResultStr);
+            BirdScanOutputTable(JsonDataParsed, TableDiv);
         }
         catch (error) {
             console.error('An error occurred:', error.message);
@@ -125,8 +125,8 @@ SubmitButton.addEventListener('click', async () => {
             console.log('Custom scan completed');
             console.log(result);
             let ResultStr = JSON.stringify(result);
-            let JsonDataForTable = JSON.parse(ResultStr);
-            BirdScanOutputTable(JsonDataForTable, TableDiv);
+            let JsonDataParsed = JSON.parse(ResultStr);
+            BirdScanOutputTable(JsonDataParsed, TableDiv);
         }
         catch (error) {
             console.error('An error occurred:', error.message);

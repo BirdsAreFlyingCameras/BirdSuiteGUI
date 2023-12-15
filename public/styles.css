@@ -81,6 +81,10 @@
   cursor: pointer;
 }
 
+.SubmitButton:active {
+  background-color: white;
+}
+
 #CommonScanButton,
 #FullScanButton,
 #CustomScanButton {
@@ -242,7 +246,7 @@ td {
 }
 
 .DownloadButton:active {
-  background-color: #e9e9e9;
+  background-color: white;
 }
 
 /*# sourceMappingURL=styles.css.map */

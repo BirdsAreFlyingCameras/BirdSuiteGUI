@@ -138,9 +138,10 @@ SubmitButton.addEventListener('click', async () => {
 
             let ResultStr = JSON.stringify(result)
 
-            let JsonDataForTable = JSON.parse(ResultStr)
+            let JsonDataParsed = JSON.parse(ResultStr)
 
-            BirdScanOutputTable(JsonDataForTable, TableDiv)
+            BirdScanOutputTable(JsonDataParsed, TableDiv)
+
 
         } catch (error) {
             console.error('An error occurred:', error.message);
@@ -172,9 +173,9 @@ SubmitButton.addEventListener('click', async () => {
 
             let ResultStr = JSON.stringify(result)
 
-            let JsonDataForTable = JSON.parse(ResultStr)
+            let JsonDataParsed = JSON.parse(ResultStr)
 
-            BirdScanOutputTable(JsonDataForTable, TableDiv)
+            BirdScanOutputTable(JsonDataParsed, TableDiv)
 
 
         } catch (error) {
@@ -212,9 +213,9 @@ SubmitButton.addEventListener('click', async () => {
 
             let ResultStr = JSON.stringify(result)
 
-            let JsonDataForTable = JSON.parse(ResultStr)
+            let JsonDataParsed = JSON.parse(ResultStr)
 
-            BirdScanOutputTable(JsonDataForTable, TableDiv)
+            BirdScanOutputTable(JsonDataParsed, TableDiv)
 
 
         } catch (error) {
