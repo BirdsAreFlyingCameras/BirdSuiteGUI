@@ -213,26 +213,32 @@ $LineSpaceMargin: 0.4em;
 
 }
 
-#TableDiv {
 
-  background-color: $BackGroundColor;
 
-  font-family: $Font;
 
-  border-top-right-radius: 5%;
-  border-bottom-right-radius: 5%;
+.TableDivActive {
 
-  border-right: 0.1em solid $BorderColor;
-  border-bottom: 0.1em solid $BorderColor;
-  border-top: 0.1em solid $BorderColor;
 
-  display: flex;
 
-  flex-direction: column;
+background-color: $BackGroundColor;
 
-  box-sizing: border-box;
+font-family: $Font;
 
-  align-self: end;
+border-top-right-radius: 5%;
+border-bottom-right-radius: 5%;
+
+border-right: 0.1em solid $BorderColor;
+border-bottom: 0.1em solid $BorderColor;
+border-top: 0.1em solid $BorderColor;
+
+display: flex;
+
+flex-direction: column;
+
+box-sizing: border-box;
+
+align-self: end;
+
 
 }
 
@@ -245,6 +251,8 @@ $LineSpaceMargin: 0.4em;
   width: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
   align-content: center;
+
+  box-sizing: border-box;
 
 
 }

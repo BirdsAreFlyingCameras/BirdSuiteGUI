@@ -124,6 +124,7 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     TableDiv.style.height = `${TableHeight}px`
 
+    TableDiv.classList.add('TableDivActive')
 
     BirdScanContainer.appendChild(TableDiv)
 
