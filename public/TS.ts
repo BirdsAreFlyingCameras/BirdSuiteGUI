@@ -1,4 +1,4 @@
-import {BirdScanOutputTable, BirdScanPost, DisplayErrorMessage} from './utils.js'
+import {BirdScanOutputTable, BirdScanPost, DisplayErrorMessage, DownloadBirdScanResult} from './utils.js'
 
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
@@ -8,6 +8,7 @@ const CustomScanButton = document.getElementById('CustomScanButton') as HTMLButt
 const RangeInputBox = document.getElementById('CustomScanRangeInput') as HTMLInputElement
 
 const SubmitButton = document.getElementById('SubmitButton')
+
 
 console.log('JS Script Loaded')
 
@@ -106,7 +107,7 @@ SubmitButton.addEventListener('click', async () => {
 
     let URLorIP = URLorIPInput.value
 
-    if (URLorIP == ""){
+    if (URLorIP == "") {
 
         DisplayErrorMessage("A Url or IP is Required")
         return console.log("A Url or IP is Required")
@@ -141,6 +142,39 @@ SubmitButton.addEventListener('click', async () => {
             let JsonDataParsed = JSON.parse(ResultStr)
 
             BirdScanOutputTable(JsonDataParsed, TableDiv)
+
+            function GetJsonData() {
+                return JsonDataParsed
+            }
+            function GetURLorIP() {
+                return URLorIP
+            }
+            function GetFileType() {
+                let FileType = 'txt' /* will update to work will CSV later */
+                return FileType
+
+            }
+
+            const DownloadButton = document.getElementById('DownloadButton') as HTMLButtonElement
+
+            if (DownloadButton) {
+                console.log('Download Button Loaded')
+                DownloadButton.addEventListener('click', async () => {
+
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP()
+                    let FileType = GetFileType()
+
+                    console.log(JsonData)
+                    console.log(URLorIP)
+
+
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt')
+
+                })
+
+
+            }
 
 
         } catch (error) {
@@ -177,6 +211,39 @@ SubmitButton.addEventListener('click', async () => {
 
             BirdScanOutputTable(JsonDataParsed, TableDiv)
 
+            function GetJsonData() {
+                return JsonDataParsed
+            }
+            function GetURLorIP() {
+                return URLorIP
+            }
+            function GetFileType() {
+                let FileType = 'txt' /* will update to work will CSV later */
+                return FileType
+
+            }
+
+            const DownloadButton = document.getElementById('DownloadButton') as HTMLButtonElement
+
+            if (DownloadButton) {
+                console.log('Download Button Loaded')
+                DownloadButton.addEventListener('click', async () => {
+
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP()
+                    let FileType = GetFileType()
+
+                    console.log(JsonData)
+                    console.log(URLorIP)
+
+
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt')
+
+                })
+
+
+            }
+
 
         } catch (error) {
             console.error('An error occurred:', error.message);
@@ -189,7 +256,7 @@ SubmitButton.addEventListener('click', async () => {
 
         let PortRange = PortRangeInput.value
 
-        if (PortRange == ""){
+        if (PortRange == "") {
             DisplayErrorMessage("Custom Scan Requires A Port Range")
             return console.log('Custom Scan Requires A Port Range')
 
@@ -198,13 +265,14 @@ SubmitButton.addEventListener('click', async () => {
         let ScanType = 'Custom'
 
         let PostData = {
-            URLorIP:URLorIP,
-            ScanType:ScanType,
-            InputRange:PortRange
+            URLorIP: URLorIP,
+            ScanType: ScanType,
+            InputRange: PortRange
         }
 
         console.log(`Scan Type: ${ScanType}`)
         console.log(`Post Data: ${JSON.stringify(PostData)}`)
+
 
         try {
             const result = await BirdScanPost(URLorIP, ScanType, PortRange)
@@ -217,10 +285,47 @@ SubmitButton.addEventListener('click', async () => {
 
             BirdScanOutputTable(JsonDataParsed, TableDiv)
 
+            function GetJsonData() {
+                return JsonDataParsed
+            }
+            function GetURLorIP() {
+                return URLorIP
+            }
+            function GetFileType() {
+                let FileType = 'txt' /* will update to work will CSV later */
+                return FileType
 
-        } catch (error) {
+            }
+
+            const DownloadButton = document.getElementById('DownloadButton') as HTMLButtonElement
+
+            if (DownloadButton) {
+                console.log('Download Button Loaded')
+                DownloadButton.addEventListener('click', async () => {
+
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP()
+                    let FileType = GetFileType()
+
+                    console.log(JsonData)
+                    console.log(URLorIP)
+
+
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt')
+
+                })
+
+
+            }
+
+
+        }
+        catch (error) {
             console.error('An error occurred:', error.message);
         }
+
+
     }
+
 
 })

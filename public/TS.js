@@ -1,4 +1,4 @@
-import { BirdScanOutputTable, BirdScanPost, DisplayErrorMessage } from './utils.js';
+import { BirdScanOutputTable, BirdScanPost, DisplayErrorMessage, DownloadBirdScanResult } from './utils.js';
 const CommonButton = document.getElementById('CommonScanButton');
 const FullScanButton = document.getElementById('FullScanButton');
 const CustomScanButton = document.getElementById('CustomScanButton');
@@ -80,6 +80,28 @@ SubmitButton.addEventListener('click', async () => {
             let ResultStr = JSON.stringify(result);
             let JsonDataParsed = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataParsed, TableDiv);
+            function GetJsonData() {
+                return JsonDataParsed;
+            }
+            function GetURLorIP() {
+                return URLorIP;
+            }
+            function GetFileType() {
+                let FileType = 'txt'; /* will update to work will CSV later */
+                return FileType;
+            }
+            const DownloadButton = document.getElementById('DownloadButton');
+            if (DownloadButton) {
+                console.log('Download Button Loaded');
+                DownloadButton.addEventListener('click', async () => {
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP();
+                    let FileType = GetFileType();
+                    console.log(JsonData);
+                    console.log(URLorIP);
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt');
+                });
+            }
         }
         catch (error) {
             console.error('An error occurred:', error.message);
@@ -100,6 +122,28 @@ SubmitButton.addEventListener('click', async () => {
             let ResultStr = JSON.stringify(result);
             let JsonDataParsed = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataParsed, TableDiv);
+            function GetJsonData() {
+                return JsonDataParsed;
+            }
+            function GetURLorIP() {
+                return URLorIP;
+            }
+            function GetFileType() {
+                let FileType = 'txt'; /* will update to work will CSV later */
+                return FileType;
+            }
+            const DownloadButton = document.getElementById('DownloadButton');
+            if (DownloadButton) {
+                console.log('Download Button Loaded');
+                DownloadButton.addEventListener('click', async () => {
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP();
+                    let FileType = GetFileType();
+                    console.log(JsonData);
+                    console.log(URLorIP);
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt');
+                });
+            }
         }
         catch (error) {
             console.error('An error occurred:', error.message);
@@ -127,6 +171,28 @@ SubmitButton.addEventListener('click', async () => {
             let ResultStr = JSON.stringify(result);
             let JsonDataParsed = JSON.parse(ResultStr);
             BirdScanOutputTable(JsonDataParsed, TableDiv);
+            function GetJsonData() {
+                return JsonDataParsed;
+            }
+            function GetURLorIP() {
+                return URLorIP;
+            }
+            function GetFileType() {
+                let FileType = 'txt'; /* will update to work will CSV later */
+                return FileType;
+            }
+            const DownloadButton = document.getElementById('DownloadButton');
+            if (DownloadButton) {
+                console.log('Download Button Loaded');
+                DownloadButton.addEventListener('click', async () => {
+                    let JsonData = GetJsonData();
+                    let URLorIP = GetURLorIP();
+                    let FileType = GetFileType();
+                    console.log(JsonData);
+                    console.log(URLorIP);
+                    await DownloadBirdScanResult(JsonData, URLorIP, 'txt');
+                });
+            }
         }
         catch (error) {
             console.error('An error occurred:', error.message);

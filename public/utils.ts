@@ -72,7 +72,6 @@ export async function BirdScanOutputTable(JsonData, TableID) {
     let Table = document.createElement('table')
 
 
-
     let Dimensions = GetDimensions('BirdScanMain')
 
 
@@ -81,7 +80,6 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     console.log(`Table Height: ${TableHeight}`)
     console.log(`Table Width: ${TableWidth}`)
-
 
 
     BirdScanMain.classList.toggle('BirdScanMain')
@@ -95,22 +93,24 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
         const Service = Services[index]
 
-            console.log(PortNumber)
-            console.log(Service)
+        console.log(PortNumber)
+        console.log(Service)
 
 
-            let NewRow = Table.insertRow()
+        let NewRow = Table.insertRow()
 
 
-            NewRow.innerHTML = `<tr><td class="TableService">${Service}</td> <td class="TablePort">${PortNumber}</td></tr>`
+        NewRow.innerHTML = `<tr><td class="TableService">${Service}</td> <td class="TablePort">${PortNumber}</td></tr>`
 
-            Table.appendChild(NewRow)
+        Table.appendChild(NewRow)
 
         TableDiv.appendChild(Table)
-        })
+    })
 
 
     let DownloadButton = document.createElement('button')
+
+    DownloadButton.setAttribute('id', 'DownloadButton')
 
     DownloadButton.classList.add('DownloadButton')
 
@@ -124,11 +124,9 @@ export async function BirdScanOutputTable(JsonData, TableID) {
 
     BirdScanContainer.appendChild(TableDiv)
 
+}
 
-    }
-
-
-export async function DownloadBirdScanResult(JsonData, FileType, URLorIP) {
+export async function DownloadBirdScanResult(JsonData, URLorIP, FileType) {
 
     let PostData = {
         "JsonData":JsonData,
@@ -136,13 +134,28 @@ export async function DownloadBirdScanResult(JsonData, FileType, URLorIP) {
         "FileType":FileType
     }
 
-    const response = await fetch('http://localhost:8000/BirdScan/Download', {
+    const response = await fetch('http://127.0.0.1:8000/BirdScan/Download', {
         method: 'POST',
         body: JSON.stringify(PostData),
         headers: { 'Content-Type': 'application/json' },
     });
-    const DownloadFile = await response.json();
+    // Assuming the server responds with a file stream
+    const blob = await response.blob();
 
-    return DownloadFile;
+    // Creating a URL for the blob
+    const downloadUrl = window.URL.createObjectURL(blob);
 
+    // Creating a temporary anchor element to trigger download
+    const a = document.createElement('a');
+    a.href = downloadUrl;
+    a.download = 'downloaded_result'; // You can add a file extension based on FileType
+    document.body.appendChild(a);
+    a.style.display = 'none';
+    a.click();
+
+    // Clean up
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(downloadUrl);
+
+    console.log('Request Sent')
 }
