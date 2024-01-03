@@ -1,9 +1,15 @@
-$TextColor: black;
+$TextColor: white;
 $Font: 'Archivo', sans-serif;
-$BackGroundColor: #e9e9e9;
-$BorderColor: #bdbdbd;
+$BackGroundColor: #50577A;
+$BorderColor: #474E68;
 $LineSpaceMargin: 0.4em;
 
+$ButtonColor: #8f93bb;
+
+
+$TableColor: #ffffff;
+
+$ButtonBackgroundColor: #6B728E;
 
 .BirdScanContainer{
 
@@ -51,7 +57,6 @@ $LineSpaceMargin: 0.4em;
   border-bottom-left-radius: 5%;
 }
 
-
 .SectionHeader{
 
   margin-bottom: $LineSpaceMargin;
@@ -59,7 +64,7 @@ $LineSpaceMargin: 0.4em;
 }
 
 .URLorIPInputBox {
-  -webkit-box-shadow: 0 0 0 1000px white inset;
+  -webkit-box-shadow: 0 0 0 1000px $ButtonColor inset;
 
   box-sizing: border-box;
   border-radius: 0.3em; /* Adjust as needed */
@@ -68,7 +73,11 @@ $LineSpaceMargin: 0.4em;
 
   width: fit-content;
   height: fit-content;
-  border: 0.1em solid black;
+  border: 0.1em solid $BorderColor;
+
+  color: $TextColor;
+
+
 
   outline:none;
   appearance: none;
@@ -76,10 +85,9 @@ $LineSpaceMargin: 0.4em;
 
 }
 
-
-
 .URLorIPInputBox:focus{
   outline: none;
+  color: $TextColor;
 }
 
 
@@ -98,17 +106,19 @@ $LineSpaceMargin: 0.4em;
   flex-direction: column;
 }
 
-
 .SubmitButton{
 
   width: fit-content;
   height: fit-content;
-  background-color: white;
   border-radius: 0.5em;
+
+  color: white;
+
+  background-color: $ButtonColor;
 
   font: $Font;
   margin-top: $LineSpaceMargin;
-  border: 0.1em solid black;
+  border: 0.1em solid $BorderColor;
 
   appearance: none;
   -webkit-appearance: none;
@@ -123,6 +133,7 @@ $LineSpaceMargin: 0.4em;
 
 .SubmitButton:active {
 
+  color: black;
   background-color: white;
 
 }
@@ -133,14 +144,14 @@ $LineSpaceMargin: 0.4em;
 
   width: 1.3em;
   height: 1.3em;
-  background-color: white;
   border-radius: 50%;
   vertical-align: middle;
-  border: 0.1em solid black;
+  border: 0.1em solid $BorderColor;
   appearance: none;
   -webkit-appearance: none;
   outline: none;
   cursor: pointer;
+  background-color: $ButtonColor;
 
 
 
@@ -157,9 +168,10 @@ $LineSpaceMargin: 0.4em;
 #CommonScanButton:checked,
 #FullScanButton:checked,
 #CustomScanButton:checked {
-  border: 0.1em solid black;
 
-  background: radial-gradient(black 40%,white 20%);
+  border: 0.1em solid $BorderColor;
+
+  background: radial-gradient(white 40%, $ButtonColor 20%);
 
 }
 
@@ -184,7 +196,7 @@ $LineSpaceMargin: 0.4em;
   height: fit-content;
   box-sizing: border-box;
   border-radius: 0.3em;
-  border: 0.1em solid black;
+  border: 0.1em solid $BorderColor;
 }
 
 #PortRangeInput:focus {
@@ -251,8 +263,9 @@ align-self: end;
 .BirdScanTable{
 
 
+
   margin: 0.5em;
-  border: 1px solid black;
+  border: 1px solid $TableColor;
 
   width: fit-content;
   border-collapse: collapse; /* Ensures borders are collapsed into a single line */
@@ -264,6 +277,9 @@ align-self: end;
 }
 
 .PortHeader{
+
+  color: $TableColor;
+
 
   text-align: right;
 
@@ -277,6 +293,9 @@ align-self: end;
 
 .ServiceHeader{
 
+  color: $TableColor;
+
+
   text-align: left;
 
   margin-left: 5px;
@@ -289,6 +308,8 @@ align-self: end;
 
 .TablePort{
 
+  color: $TableColor;
+
   text-align: right;
 
   padding-left: 5px;
@@ -298,6 +319,10 @@ align-self: end;
 }
 
 .TableService{
+
+  color: $TableColor;
+
+
   text-align: left;
 
   padding-left: 5px;
@@ -307,7 +332,7 @@ align-self: end;
 }
 
 th, td {
-  border: 0.1em solid black;
+  border: 0.1em solid $TableColor;
 }
 
 
@@ -341,11 +366,13 @@ td {
 
   margin-left: 0.5em;
 
-  background-color: white;
+  background-color: $ButtonColor;
   border-radius: 0.5em;
 
+  color: white;
+
   font: $Font;
-  border: 0.1em solid black;
+  border: 0.1em solid $BorderColor;
 
   appearance: none;
   -webkit-appearance: none;
@@ -363,7 +390,6 @@ td {
 .DownloadButton:active{
 
   background-color: white;
-
 
 }
 

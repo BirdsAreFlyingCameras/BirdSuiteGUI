@@ -183,8 +183,6 @@ SubmitButton.addEventListener('click', async () => {
         }
     }
 
-
-
     if (FullScanButton.classList.contains('Checked')) {
 
         let ScanType = 'Full'
