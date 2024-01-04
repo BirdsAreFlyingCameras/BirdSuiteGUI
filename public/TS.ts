@@ -1,4 +1,13 @@
-import {BirdScanOutputTable, BirdScanPost, DisplayErrorMessage, DownloadBirdScanResult} from './utils.js'
+
+//Bird Scan TS
+
+import {
+    BirdGlanceDisplayResults,
+    BirdScanOutputTable,
+    BirdScanPost,
+    DisplayErrorMessage,
+    DownloadBirdScanResult
+} from './utils.js'
 
 const CommonButton = document.getElementById('CommonScanButton') as HTMLButtonElement
 
@@ -9,6 +18,7 @@ const RangeInputBox = document.getElementById('CustomScanRangeInput') as HTMLInp
 
 const SubmitButton = document.getElementById('SubmitButton')
 
+const ErrorBox = document.getElementById('ErrorBox')
 
 console.log('JS Script Loaded')
 
@@ -109,7 +119,7 @@ SubmitButton.addEventListener('click', async () => {
 
     if (URLorIP == "") {
 
-        DisplayErrorMessage("A Url or IP is Required")
+        DisplayErrorMessage("A Url or IP is Required", "ErrorBox")
         return console.log("A Url or IP is Required")
 
     }
@@ -255,7 +265,7 @@ SubmitButton.addEventListener('click', async () => {
         let PortRange = PortRangeInput.value
 
         if (PortRange == "") {
-            DisplayErrorMessage("Custom Scan Requires A Port Range")
+            DisplayErrorMessage("Custom Scan Requires A Port Range","ErrorBox")
             return console.log('Custom Scan Requires A Port Range')
 
         }
@@ -324,6 +334,36 @@ SubmitButton.addEventListener('click', async () => {
 
 
     }
+
+
+})
+
+
+
+//Bird Glance TS
+
+import {BirdGlancePost} from './utils.js'
+
+
+const SubmitButtonBirdGlance = document.getElementById('SubmitButton-BirdGlance')
+let URLInput = document.getElementById('URLInput-BirdGlance') as HTMLInputElement
+
+SubmitButtonBirdGlance.addEventListener('click', async () => {
+
+    let URL = URLInput.value
+
+    if (URL == "") {
+
+        DisplayErrorMessage("A Url or IP is Required", "ErrorBox-BirdGlance")
+        return console.log("A Url is Required")
+
+    }
+
+    const Results = await BirdGlancePost(URL)
+
+    console.log(Results)
+
+    BirdGlanceDisplayResults(Results)
 
 
 })

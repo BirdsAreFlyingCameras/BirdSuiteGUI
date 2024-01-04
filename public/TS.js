@@ -1,9 +1,11 @@
-import { BirdScanOutputTable, BirdScanPost, DisplayErrorMessage, DownloadBirdScanResult } from './utils.js';
+//Bird Scan TS
+import { BirdGlanceDisplayResults, BirdScanOutputTable, BirdScanPost, DisplayErrorMessage, DownloadBirdScanResult } from './utils.js';
 const CommonButton = document.getElementById('CommonScanButton');
 const FullScanButton = document.getElementById('FullScanButton');
 const CustomScanButton = document.getElementById('CustomScanButton');
 const RangeInputBox = document.getElementById('CustomScanRangeInput');
 const SubmitButton = document.getElementById('SubmitButton');
+const ErrorBox = document.getElementById('ErrorBox');
 console.log('JS Script Loaded');
 function handleButtonClick(value) {
     let ScanType = value;
@@ -60,7 +62,7 @@ SubmitButton.addEventListener('click', async () => {
     let TableDiv = document.getElementById('TableDiv');
     let URLorIP = URLorIPInput.value;
     if (URLorIP == "") {
-        DisplayErrorMessage("A Url or IP is Required");
+        DisplayErrorMessage("A Url or IP is Required", "ErrorBox");
         return console.log("A Url or IP is Required");
     }
     console.log(`URL or IP: ${URLorIP}`);
@@ -153,7 +155,7 @@ SubmitButton.addEventListener('click', async () => {
         let PortRangeInput = document.getElementById('PortRangeInput');
         let PortRange = PortRangeInput.value;
         if (PortRange == "") {
-            DisplayErrorMessage("Custom Scan Requires A Port Range");
+            DisplayErrorMessage("Custom Scan Requires A Port Range", "ErrorBox");
             return console.log('Custom Scan Requires A Port Range');
         }
         let ScanType = 'Custom';
@@ -198,5 +200,19 @@ SubmitButton.addEventListener('click', async () => {
             console.error('An error occurred:', error.message);
         }
     }
+});
+//Bird Glance TS
+import { BirdGlancePost } from './utils.js';
+const SubmitButtonBirdGlance = document.getElementById('SubmitButton-BirdGlance');
+let URLInput = document.getElementById('URLInput-BirdGlance');
+SubmitButtonBirdGlance.addEventListener('click', async () => {
+    let URL = URLInput.value;
+    if (URL == "") {
+        DisplayErrorMessage("A Url or IP is Required", "ErrorBox-BirdGlance");
+        return console.log("A Url is Required");
+    }
+    const Results = await BirdGlancePost(URL);
+    console.log(Results);
+    BirdGlanceDisplayResults(Results);
 });
 //# sourceMappingURL=TS.js.map

@@ -1,3 +1,20 @@
+// Global CSS
+
+.WidgetContainer{
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
+
+.WidgetTitle{
+
+  font-size: small;
+  margin-bottom: 5px;
+
+}
+
+//BirdScan-CSS
+
 $TextColor: white;
 $Font: 'Archivo', sans-serif;
 $BackGroundColor: #50577A;
@@ -5,7 +22,6 @@ $BorderColor: #474E68;
 $LineSpaceMargin: 0.4em;
 
 $ButtonColor: #8f93bb;
-
 
 $TableColor: #ffffff;
 
@@ -15,7 +31,6 @@ $ButtonBackgroundColor: #6B728E;
 
   display: grid;
   grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
-
 
 }
 
@@ -90,7 +105,6 @@ $ButtonBackgroundColor: #6B728E;
   color: $TextColor;
 }
 
-
 .Toggled{
   display: block;
 }
@@ -157,7 +171,6 @@ $ButtonBackgroundColor: #6B728E;
 
 }
 
-
 #CommonScanButton:hover,
 #FullScanButton:hover,
 #CustomScanButton:hover {
@@ -165,6 +178,7 @@ $ButtonBackgroundColor: #6B728E;
   background-color: lightblue;
 
 }
+
 #CommonScanButton:checked,
 #FullScanButton:checked,
 #CustomScanButton:checked {
@@ -221,10 +235,17 @@ $ButtonBackgroundColor: #6B728E;
   padding: 0;
   border: 0;
   width: fit-content;
+  height: fit-content;
 
 }
 
 .ErrorMessage{
+  height: fit-content;
+  width: fit-content;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
 
   color: red;
   font-size: 0.5em;
@@ -335,7 +356,6 @@ th, td {
   border: 0.1em solid $TableColor;
 }
 
-
 th {
   text-align: center;
 }
@@ -402,3 +422,116 @@ td {
 
 }
 
+
+
+
+
+//BirdGlance-CSS
+
+
+.BirdGlanceContainer{
+
+  display: grid;
+  grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
+
+}
+
+.BirdGlanceMain{
+
+  background-color: $BackGroundColor;
+  font-family: $Font;
+  color: $TextColor;
+  border: 0.1em solid $BorderColor;
+
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 11.15em;
+
+  padding: 0.5em;
+
+  border-radius: 5%;
+}
+
+.URLorIPInputBox {
+
+  //Copied from BirdScan
+
+  -webkit-box-shadow: 0 0 0 1000px $ButtonColor inset;
+
+  box-sizing: border-box;
+  border-radius: 0.3em; /* Adjust as needed */
+
+  margin-bottom: $LineSpaceMargin;
+
+  width: fit-content;
+  height: fit-content;
+  border: 0.1em solid $BorderColor;
+
+  color: $TextColor;
+
+
+
+  outline:none;
+  appearance: none;
+  padding: 2px;
+
+}
+
+.SubmitButton-BirdGlance{
+
+  //Copied from BirdScan
+
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.5em;
+
+  color: white;
+
+  background-color: $ButtonColor;
+
+  font: $Font;
+  margin-top: $LineSpaceMargin;
+  border: 0.1em solid $BorderColor;
+
+  appearance: none;
+  -webkit-appearance: none;
+
+}
+
+.SubmitButton-BirdGlance:hover {
+
+  //Copied from BirdScan
+
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.SubmitButton-BirdGlance:active {
+
+  //Copied from BirdScan
+
+  color: black;
+  background-color: white;
+
+}
+
+
+.BirdGlanceResultsMain{
+
+  font-family: $Font;
+
+  font-size: small;
+
+  color: $TextColor;
+  background-color: $BackGroundColor;
+
+  width: fit-content;
+  height: fit-content;
+
+  max-width: 11.15em;
+
+  padding: 0.5em;
+
+  border-radius: 5%;
+}

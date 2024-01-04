@@ -12,32 +12,55 @@
     </head>
     <body>
 
-    <div class="BirdScanContainer" id="BirdScanContainer">
-        <div class="BirdScanMain" id="BirdScanMain">
-            <div class="SectionHeader">Url or IP</div><div id="ErrorBox"></div>
-            <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="URLorIPInputBox">
+    <div class="WidgetContainer" id="WidgetContainer">
 
-            <div class="ScanTypeButtonContainer">
-                <label class="CheckBox">
-                    <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
-                </label>
-                <label class="CheckBox">
-                    <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
-                </label>
-                <label class="CheckBox">
-                    <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
-                </label>
-                <div id="CustomScanRangeInput" class="NotToggled"></div>
-                <button id="SubmitButton" class="SubmitButton">Submit</button>
+        <div class="BirdScanContainer" id="BirdScanContainer">
+            <div class="BirdScanMain" id="BirdScanMain">
+                <div class="WidgetTitle">Bird Scan</div>
+                <div class="SectionHeader">Url or IP<div id="ErrorBox"></div></div>
+                <label for="URLorIP"></label><input type="text" id="URLorIP" placeholder="www.placeholder.com" class="URLorIPInputBox">
+
+                <div class="ScanTypeButtonContainer">
+                    <label class="CheckBox">
+                        <input id="CommonScanButton" type="checkbox" class="NotChecked">Common Scan
+                    </label>
+                    <label class="CheckBox">
+                        <input id="FullScanButton" type="checkbox" class="NotChecked">Full Scan
+                    </label>
+                    <label class="CheckBox">
+                        <input id="CustomScanButton" type="checkbox" class="NotChecked">Custom Scan
+                    </label>
+                    <div id="CustomScanRangeInput" class="NotToggled"></div>
+                    <button id="SubmitButton" class="SubmitButton">Submit</button>
+                </div>
+            </div>
+            <div id="TableDiv">
+
+
             </div>
         </div>
-        <div id="TableDiv">
 
+        <div class="BirdGlanceContainer" id="BirdGlanceContainer">
+
+            <div class="BirdGlanceMain" id="BirdGlanceMain">
+                <div class="WidgetTitle">Bird Glance</div>
+                <div class="SectionHeader">Url<div id="ErrorBox-BirdGlance"></div></div>
+                <label for="URLInput-BirdGlance"></label><input type="text" id="URLInput-BirdGlance" placeholder="www.placeholder.com" class="URLorIPInputBox">
+
+                <button id="SubmitButton-BirdGlance" class="SubmitButton-BirdGlance">Submit</button>
+
+            </div>
+
+            <div class="BirdGlanceResultsContainer" id="BirdGlanceResultsContainer">
+                <div class="BirdGlanceResultsMain" id="BirdGlanceResultsMain">
+
+                </div>
+
+            </div>
 
         </div>
+
     </div>
-
-
     <script type="module" src="TS.js"></script>
 
     </body>

@@ -1,3 +1,5 @@
+import {json} from "stream/consumers";
+
 export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:string) {
 
     if (ScanType == 'CustomScan' && PortRange == null){
@@ -30,15 +32,13 @@ export async function BirdScanPost(URLorIP:string, ScanType:string, PortRange?:s
     return content;
 }
 
+export function DisplayErrorMessage(ErrorMessage:string, ErrorBoxID:string) {
 
-export function DisplayErrorMessage(ErrorMessage:string) {
-
-    const ErrorBox = document.getElementById('ErrorBox')
+    const ErrorBox = document.getElementById(ErrorBoxID)
 
     ErrorBox.innerHTML = `<b class="ErrorMessage">${ErrorMessage}</b>`
 
 }
-
 
 export function GetDimensions(ElementID) {
 
@@ -51,7 +51,6 @@ export function GetDimensions(ElementID) {
 
 
 }
-
 
 export async function BirdScanOutputTable(JsonData, TableID) {
 
@@ -158,4 +157,53 @@ export async function DownloadBirdScanResult(JsonData, URLorIP, FileType) {
     window.URL.revokeObjectURL(downloadUrl);
 
     console.log('Request Sent')
+}
+export async function BirdGlancePost(URL:string) {
+
+
+    let PostData = {
+            URL:URL,
+        }
+
+    const response = await fetch('http://localhost:8000/BirdGlance', {
+        method: 'POST',
+        body: JSON.stringify(PostData),
+        headers: { 'Content-Type': 'application/json' },
+    });
+    const content = await response.json();
+
+    return content;
+}
+
+export async function BirdGlanceDisplayResults(JsonData) {
+
+    let Dimensions = GetDimensions('BirdGlanceMain')
+
+    let TableHeight = Dimensions.ElementHeight
+    let TableWidth = Dimensions.ElementWidth
+
+    let BirdGlanceResultsMain = document.getElementById('BirdGlanceResultsMain')
+
+    console.log(`Table Height: ${TableHeight}`)
+    console.log(`Table Width: ${TableWidth}`)
+
+    let IP = JsonData['IP Address']
+    let HostName = JsonData['Hostname']
+    let ISP = JsonData['ISP']
+    let Country = JsonData['Country']
+    let StateOrRegion = JsonData['State or Region']
+    let City = JsonData['City']
+
+
+    let ResultsFromJson = `
+                            <div>IP Address: ${IP}</div>
+                            <div>HostName: ${HostName}</div></div>
+                            <div>ISP: ${ISP}</div>
+                            <div>Country: ${Country}</div>
+                            <div>State or Region: ${StateOrRegion}</div>
+                            <div>City: ${City}</div>        
+`
+
+    BirdGlanceResultsMain.innerHTML = ResultsFromJson
+
 }

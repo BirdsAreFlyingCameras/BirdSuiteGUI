@@ -1,3 +1,14 @@
+.WidgetContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.WidgetTitle {
+  font-size: small;
+  margin-bottom: 5px;
+}
+
 .BirdScanContainer {
   display: grid;
   grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
@@ -154,9 +165,15 @@
   padding: 0;
   border: 0;
   width: fit-content;
+  height: fit-content;
 }
 
 .ErrorMessage {
+  height: fit-content;
+  width: fit-content;
+  margin: 0;
+  padding: 0;
+  border: 0;
   color: red;
   font-size: 0.5em;
 }
@@ -256,6 +273,72 @@ td {
 
 .DownloadButton:active {
   background-color: white;
+}
+
+.BirdGlanceContainer {
+  display: grid;
+  grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
+}
+
+.BirdGlanceMain {
+  background-color: #50577A;
+  font-family: "Archivo", sans-serif;
+  color: white;
+  border: 0.1em solid #474E68;
+  width: fit-content;
+  height: fit-content;
+  max-width: 11.15em;
+  padding: 0.5em;
+  border-radius: 5%;
+}
+
+.URLorIPInputBox {
+  -webkit-box-shadow: 0 0 0 1000px #8f93bb inset;
+  box-sizing: border-box;
+  border-radius: 0.3em; /* Adjust as needed */
+  margin-bottom: 0.4em;
+  width: fit-content;
+  height: fit-content;
+  border: 0.1em solid #474E68;
+  color: white;
+  outline: none;
+  appearance: none;
+  padding: 2px;
+}
+
+.SubmitButton-BirdGlance {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 0.5em;
+  color: white;
+  background-color: #8f93bb;
+  font: "Archivo", sans-serif;
+  margin-top: 0.4em;
+  border: 0.1em solid #474E68;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.SubmitButton-BirdGlance:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.SubmitButton-BirdGlance:active {
+  color: black;
+  background-color: white;
+}
+
+.BirdGlanceResultsMain {
+  font-family: "Archivo", sans-serif;
+  font-size: small;
+  color: white;
+  background-color: #50577A;
+  width: fit-content;
+  height: fit-content;
+  max-width: 11.15em;
+  padding: 0.5em;
+  border-radius: 5%;
 }
 
 /*# sourceMappingURL=styles.css.map */
