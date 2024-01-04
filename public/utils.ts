@@ -185,6 +185,9 @@ export async function BirdGlanceDisplayResults(JsonData) {
     let BirdGlanceMain = document.getElementById('BirdGlanceMain')
 
 
+    BirdGlanceResultsMain.classList.toggle('BirdGlaceResultsNotToggled')
+    BirdGlanceResultsMain.classList.toggle('BirdGlanceResultsMain')
+
     let IP = JsonData['IP Address']
     let HostName = JsonData['Hostname']
     let ISP = JsonData['ISP']
