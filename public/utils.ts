@@ -177,15 +177,13 @@ export async function BirdGlancePost(URL:string) {
 
 export async function BirdGlanceDisplayResults(JsonData) {
 
-    let Dimensions = GetDimensions('BirdGlanceMain')
-
-    let TableHeight = Dimensions.ElementHeight
-    let TableWidth = Dimensions.ElementWidth
 
     let BirdGlanceResultsMain = document.getElementById('BirdGlanceResultsMain')
+    let BirdGlanceResultsContainer = document.getElementById('BirdGlanceContainer')
 
-    console.log(`Table Height: ${TableHeight}`)
-    console.log(`Table Width: ${TableWidth}`)
+    let BirdGlanceContainer = document.getElementById('BirdGlanceContainer')
+    let BirdGlanceMain = document.getElementById('BirdGlanceMain')
+
 
     let IP = JsonData['IP Address']
     let HostName = JsonData['Hostname']
@@ -195,15 +193,51 @@ export async function BirdGlanceDisplayResults(JsonData) {
     let City = JsonData['City']
 
 
-    let ResultsFromJson = `
-                            <div>IP Address: ${IP}</div>
-                            <div>HostName: ${HostName}</div></div>
-                            <div>ISP: ${ISP}</div>
-                            <div>Country: ${Country}</div>
-                            <div>State or Region: ${StateOrRegion}</div>
-                            <div>City: ${City}</div>        
-`
+    let ResultsFromJson = `IP Address:${IP} 
+                           HostName: ${HostName} 
+                           ISP: ${ISP} 
+                           Country: ${Country} 
+                           State or Region: ${StateOrRegion} 
+                           City: ${City}`
 
-    BirdGlanceResultsMain.innerHTML = ResultsFromJson
+    BirdGlanceResultsMain.innerText = ResultsFromJson
 
+    BirdGlanceMain.classList.toggle('BirdGlanceMain')
+    BirdGlanceMain.classList.toggle('BirdGlaceResultsToggled')
+
+
+
+    let Dimensions = GetDimensions('BirdGlanceMain')
+
+    let MainWindowHeight = Dimensions.ElementHeight
+    let MainWindowWidth = Dimensions.ElementWidth
+
+    console.log(`Base Window Height: ${MainWindowHeight}`)
+
+    let SubWindowStyle = window.getComputedStyle(BirdGlanceResultsMain)
+
+    let SubWindowPaddingHeightTop = SubWindowStyle.getPropertyValue('padding-top')
+    let SubWindowPaddingHeightBottom = SubWindowStyle.getPropertyValue('padding-bottom')
+
+    let SubWindowBorderTop = SubWindowStyle.getPropertyValue('border-top')
+    let SubWindowBorderBottom = SubWindowStyle.getPropertyValue('border-bottom')
+
+    SubWindowBorderTop = SubWindowBorderTop.replace(/px$/, '')
+    SubWindowBorderBottom = SubWindowBorderBottom.replace(/px$/, '')
+
+    SubWindowPaddingHeightTop = SubWindowPaddingHeightTop.replace(/px$/, '')
+    SubWindowPaddingHeightBottom = SubWindowPaddingHeightBottom.replace(/px$/, '')
+
+    let TotalPaddingHeight = parseFloat(SubWindowPaddingHeightTop) + parseFloat(SubWindowPaddingHeightBottom)
+    let TotalBorderSize = parseFloat(SubWindowBorderTop) + parseFloat(SubWindowBorderBottom)
+
+
+    let NewHeight = MainWindowHeight - TotalPaddingHeight - TotalBorderSize
+
+    console.log(NewHeight)
+
+
+    BirdGlanceResultsMain.style.removeProperty('height')
+    BirdGlanceResultsMain.style.height = `${NewHeight}px`
+    console.log(`Subwindow Height: ${BirdGlanceResultsMain.style.height}`)
 }

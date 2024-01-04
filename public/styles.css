@@ -278,6 +278,8 @@ td {
 .BirdGlanceContainer {
   display: grid;
   grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
+  width: fit-content;
+  height: fit-content;
 }
 
 .BirdGlanceMain {
@@ -329,16 +331,40 @@ td {
   background-color: white;
 }
 
+.BirdGlanceResultsContainer {
+  width: fit-content;
+  height: fit-content;
+}
+
 .BirdGlanceResultsMain {
   font-family: "Archivo", sans-serif;
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
   font-size: small;
+  border-bottom: 0.1em solid #474E68;
+  border-right: 0.1em solid #474E68;
+  border-top: 0.1em solid #474E68;
   color: white;
   background-color: #50577A;
+  white-space: nowrap;
+  width: fit-content;
+  height: fit-content;
+  padding: 0.5em;
+}
+
+.BirdGlaceResultsToggled {
+  background-color: #50577A;
+  font-family: "Archivo", sans-serif;
+  color: white;
+  border-bottom: 0.1em solid #474E68;
+  border-left: 0.1em solid #474E68;
+  border-top: 0.1em solid #474E68;
   width: fit-content;
   height: fit-content;
   max-width: 11.15em;
   padding: 0.5em;
-  border-radius: 5%;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
 }
 
 /*# sourceMappingURL=styles.css.map */

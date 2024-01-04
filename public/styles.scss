@@ -433,6 +433,8 @@ td {
 
   display: grid;
   grid-template-columns: fit-content(100%) fit-content(100%); /* First column 300px, second column auto width */
+  width: fit-content;
+  height: fit-content;
 
 }
 
@@ -515,17 +517,46 @@ td {
   background-color: white;
 
 }
+.BirdGlanceResultsContainer {
+  width: fit-content;
+  height: fit-content;
 
+}
 
 .BirdGlanceResultsMain{
 
   font-family: $Font;
 
+  border-top-right-radius: 5%;
+  border-bottom-right-radius: 5%;
+
   font-size: small;
+
+  border-bottom: 0.1em solid $BorderColor;
+  border-right: 0.1em solid $BorderColor;
+  border-top: 0.1em solid $BorderColor;
 
   color: $TextColor;
   background-color: $BackGroundColor;
+  white-space: nowrap;
+  width: fit-content;
+  height: fit-content;
 
+
+  padding: 0.5em;
+
+}
+
+.BirdGlaceResultsToggled{
+
+
+
+  background-color: $BackGroundColor;
+  font-family: $Font;
+  color: $TextColor;
+  border-bottom: 0.1em solid $BorderColor;
+  border-left: 0.1em solid $BorderColor;
+  border-top: 0.1em solid $BorderColor;
   width: fit-content;
   height: fit-content;
 
@@ -533,5 +564,6 @@ td {
 
   padding: 0.5em;
 
-  border-radius: 5%;
+  border-top-left-radius: 5%;
+  border-bottom-left-radius: 5%;
 }
